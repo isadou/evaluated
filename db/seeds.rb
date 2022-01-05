@@ -34,7 +34,6 @@ p "#{demenagement.user.first_name}'s move created"
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
 filepath    = Rails.root.join("db/volumetrie.csv")
 
-
 CSV.foreach(filepath, csv_options) do |row|
 
   RoomType.create!(name: row['ROOM_TYPE'].rstrip) if RoomType.find_by(name: row['ROOM_TYPE'].rstrip).nil?
@@ -48,16 +47,14 @@ Move.all.each do |move|
     room = Room.create!(name: "#{type.name} de #{move.user.first_name}", move_id: move.id, room_type_id: type.id)
 
     rand(1..3).times do
-    stuff = Stuff.where(room_type_id: type.id).sample
-    inventory = Inventory.create!(room_id: room.id, stuff_id: stuff.id)
+      stuff = Stuff.where(room_type_id: type.id).sample
+      inventory = Inventory.create!(room_id: room.id, stuff_id: stuff.id)
     end
-    # inventory = Inventory.create!(room_id: room.id, stuff_id: )
+
     p "#{room.name} created"
   end
   p "all stuffs created for #{move.user.first_name}"
 end
-# room = Room.new( move: move.id, room_type: )
-# p "#{room.name} created"
 
 user = User.create!(email: "Isadou@evaluated.com", first_name: "Isabelle", last_name: "Douin", telephone: "0678901234", password: "123456")
 p "#{user.email} created"
