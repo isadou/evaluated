@@ -2,7 +2,9 @@
 <p> Description </p>
 
 <%# Méthode affichage Room.type %>
-
+<% RoomType::ROOM_TYPES.each do |type| %>
+<%= type %>
+<% end %>
 
 <%# A SUPPRIMER DANS UN SECOND TEMPS %>
 <%= link_to 'back', new_move_path %>

@@ -1,5 +1,5 @@
 class MovesController < ApplicationController
-  before_action :set_move, only: [:show, :destroy, :update, :edit]
+  before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list]
   before_action :set_user, only: [:new, :create]
 
   # method crud
@@ -46,6 +46,7 @@ class MovesController < ApplicationController
   end
 
   def rooms_list
+    @rooms = @move.rooms
   end
 
   def add_stuffs
@@ -75,5 +76,9 @@ class MovesController < ApplicationController
 
   def set_user
     @user = current_user
+  end
+
+  def set_room
+    @room = Room.find(params[:id])
   end
 end
