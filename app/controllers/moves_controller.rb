@@ -63,7 +63,7 @@ class MovesController < ApplicationController
   private
 
   def move_params
-    params.require(:move).permit(:depart, :arrivee, :type, :acces, :transport, :user_id)
+    params.require(:move).permit(:depart, :arrivee, :house_type, :acces, :transport, :user_id)
   end
 
   def set_move

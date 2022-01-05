@@ -1,0 +1,15 @@
+<%= simple_form_for(@move) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :depart, :placeholder => "Saisissez votre adresse de départ", label: false %>
+    <%= f.input :arrivee, :placeholder => "Saisissez votre adresse d'arrivée", label: false %>
+    <%= f.input :house_type, collection: Move::LOGEMENTS, as: :select, :include_blank => "Sélectionnez votre type d'habitation", label: false%>
+    <%= f.input :acces, as: :boolean, checked_value: true, unchecked_value: false, label:"Accès facile ?" %>
+    <%= f.input :transport, collection: Move::TRANSPORTS, as: :select, :include_blank => "Sélectionnez votre type de transport", label: false %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
