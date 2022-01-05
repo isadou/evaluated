@@ -4,11 +4,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :moves do
     member do
-      get :add_room
+      get :add_rooms
+      post :create_rooms
+      get :rooms_list
+      get :recap
+      get :details
+      get :find_mover
     end
     resources :rooms do
       member do
-       get "/add_stuff", to: "moves#add_stuff"
+        get "/add_stuffs", to: "moves#add_stuffs"
+        post "/create_stuffs", to: "moves#create_stuffs"
       end
     end
   end
