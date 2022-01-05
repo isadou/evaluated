@@ -1,8 +1,14 @@
 <h1>ROOM LIST</h1>
 <p> Description </p>
 
+<% @rooms.each do |room|%>
+<%= room.name %>
+<%= room.room_type.name %>
+<%= link_to room.name, add_stuffs_move_room_path(room) %>
+<br>
+<% end  %>
 <%# ERREUR DE PATH  %>
-<%= link_to "Cuisine", add_stuffs_move_room_path %>
+<%# <%= link_to "Cuisine", add_stuffs_move_room_path %>
 
 <%= link_to 'back', add_rooms_move_path %>
 <%= link_to 'next', recap_move_path %>
