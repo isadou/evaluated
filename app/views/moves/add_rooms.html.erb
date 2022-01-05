@@ -2,8 +2,14 @@
 <p> Description </p>
 
 <%# Méthode affichage Room.type %>
+<<<<<<< HEAD
 <%# render 'form_add_room', room: @room %>
 
+=======
+<% RoomType::ROOM_TYPES.each do |type| %>
+<%= type %>
+<% end %>
+>>>>>>> master
 
 <%# A SUPPRIMER DANS UN SECOND TEMPS %>
 <%= link_to 'back', new_move_path %>
