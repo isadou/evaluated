@@ -1,4 +1,8 @@
 <h1>ROOM ITEMS</h1>
 <p> description</p>
 
-<%= link_to 'back', rooms_list_move_path %>
+<% @stuffs.each do |stuff|%>
+  <%= stuff.name %>
+<%end %>
+
+<%= link_to 'back', rooms_list_move_path(@room.move) %>

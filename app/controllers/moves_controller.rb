@@ -1,6 +1,7 @@
 class MovesController < ApplicationController
-  before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list]
+  before_action :set_move, only: [:show, :destroy, :update, :edit]
   before_action :set_user, only: [:new, :create]
+  before_action :set_room, only: [:new, :create, :add_stuffs]
 
   # method crud
   def index
@@ -50,6 +51,7 @@ class MovesController < ApplicationController
   end
 
   def add_stuffs
+    @stuffs = @room.room_type.stuffs
   end
 
   def create_stuffs
