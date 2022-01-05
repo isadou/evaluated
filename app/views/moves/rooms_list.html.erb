@@ -4,7 +4,7 @@
 <% @rooms.each do |room|%>
 <%= room.name %>
 <%= room.room_type.name %>
-<%= link_to room.name, add_stuffs_move_room_path(room) %>
+<%= link_to room.name, add_stuffs_move_room_path(@move, room) %>
 <br>
 <% end  %>
 <%# ERREUR DE PATH  %>
