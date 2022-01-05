@@ -15,7 +15,7 @@ class MovesController < ApplicationController
     @move.user = @user
     if @move.save
       # redirection vers la page
-      redirect_to rooms_list_move_path(@move)
+      redirect_to add_rooms_move_path(@move)
     else
       render :new
     end
@@ -43,6 +43,9 @@ class MovesController < ApplicationController
   end
 
   def create_rooms
+  end
+
+  def rooms_list
   end
 
   def add_stuffs
