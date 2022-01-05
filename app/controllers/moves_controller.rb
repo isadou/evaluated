@@ -1,10 +1,11 @@
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :destroy, :update, :edit]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: [:new, :create, :index]
   before_action :set_room, only: [:new, :create, :add_stuffs]
 
   # method crud
   def index
+    @moves = Move.where(user_id: @user.id)
   end
 
   def new

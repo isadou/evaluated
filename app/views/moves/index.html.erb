@@ -1,0 +1,14 @@
+
+<h1>Mes Projets</h1>
+
+<% @moves.each do |move| %>
+      <tr>
+        <td><%= move.depart %></td>
+        <td><%= move.arrivee %></td>
+        <td><%= move.transport %></td>
+        <td>volume total</td>
+        <td><%= link_to 'Voir', recap_move_path(move) %></td>
+        <td><%= link_to 'Editer', edit_move_path(move) %></td>
+        <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
