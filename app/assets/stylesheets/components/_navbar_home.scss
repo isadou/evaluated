@@ -1,0 +1,43 @@
+.navbar-lewagon {
+    justify-content: space-between;
+    background: #ff000000;
+    position: absolute;
+    width: 100vw;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+// PERSONNALISATION EVALUAT3D
+
+.navbar {
+  padding: 1rem 1rem;
+}
+
+.navbar-light .navbar-toggler-icon {
+  &.arrow {
+    background-image: url("menu_Arrow.svg");
+  }
+  &.menu {
+    background-image: url("menu_Icon.svg");
+    height: 30px;
+  }
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.nav-link-pages {
+  color: rgb(0, 0, 0);
+  font-family: 'Baloo Chettan 2', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+}
