@@ -40,8 +40,8 @@ CSV.foreach(filepath, csv_options) do |row|
 
   row['VOLUME'] = 0 if row['VOLUME'].nil?
   row['VOLUME CARTON'] = 0 if row['VOLUME CARTON'].nil?
-  p row['VOLUME CARTON']
-  stuff = Stuff.create!(name: row['STUFFS'].rstrip, volume: row['VOLUME'].to_f, carton: row['CARTON'].to_i, room_type_id: RoomType.find_by(name: row['ROOM_TYPE'].rstrip).id, volume_carton: row['VOLUME CARTON'].to_f)
+
+  stuff = Stuff.create!(name: row['STUFFS'].rstrip, volume: row['VOLUME'].gsub(",",".").to_f, carton: row['CARTON'].to_i, room_type_id: RoomType.find_by(name: row['ROOM_TYPE'].rstrip).id, volume_carton: row['VOLUME CARTON'].gsub(",",".").to_f)
   p "#{stuff.name} created"
 end
 
