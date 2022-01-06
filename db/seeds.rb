@@ -44,7 +44,7 @@ end
 
 Move.all.each do |move|
   RoomType.all.each do |type|
-    room = Room.create!(name: "#{type.name} de #{move.user.first_name}", move_id: move.id, room_type_id: type.id)
+    room = Room.create!(name: "#{type.name.capitalize} de #{move.user.first_name}", move_id: move.id, room_type_id: type.id)
 
     rand(1..3).times do
       stuff = Stuff.where(room_type_id: type.id).sample
