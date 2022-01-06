@@ -9,10 +9,13 @@
 <% end  %>
 <br><br>
 <p> Matériels à prévoir :</p>
-<%= "total = #{pluralize(@cartons, 'carton')}" %>
+<%= "#{pluralize(@cartons, 'carton')} au total" %>
 <br><br>
 <%@materiels.each do |key, value|%>
-<%= " => #{pluralize(value, key.downcase)}" unless key == "Transport" %>
-<%= "et un #{value.downcase}" if key == "Transport"%>
-<br>
+  <%unless key == "Transport" %>
+  <%= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
+  <%= "#{value} #{key.downcase}"%>
+  <br>
+  <% end %>
 <% end  %>
+<%= "et un #{@materiels["Transport"].downcase}"%>

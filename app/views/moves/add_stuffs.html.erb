@@ -11,9 +11,9 @@
   <%end %>
     <div class="form-actions">
     <p>Vous avez fini de saisir votre mobilier ?</p>
-      <%= f.button :submit, 'Calculez votre volume'%>
+      <%= f.button :submit, 'Valider', class: 'btn btn-secondary w-100 mx-1' %>
     </div>
 <% end %>
 
-<p> Continuez à saisir le mobilier des autres pièces</p>
-<%= link_to 'back', rooms_list_move_path(@room.move) %>
+<p> Ssaisir le mobilier d'une autre pièce</p>
+<%= link_to 'back', rooms_list_move_path(@room.move)%>
