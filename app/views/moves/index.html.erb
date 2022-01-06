@@ -10,5 +10,8 @@
         <td><%= link_to 'Voir', recap_move_path(move) %></td>
         <td><%= link_to 'Editer', edit_move_path(move) %></td>
         <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
       </tr>
     <% end %>
+    <br>
+    <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-gradient" %>

@@ -1,5 +1,8 @@
 <h1>Test Heroku</h1>
 
 <p>Find me in app/views/pages/home.html.erb</p>
-
-<%= link_to "je déménage !", new_move_path, class: "btn btn-gradient" %>
+<% if Move.where(user_id: current_user).count > 0 %>
+  <%= link_to "je déménage !", moves_path, class: "btn btn-gradient" %>
+<% else %>
+  <%= link_to "je déménage !", new_move_path, class: "btn btn-gradient" %>
+<% end %>
