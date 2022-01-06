@@ -1,10 +1,10 @@
 // Evaluat3d Stylesheet Application
 @import "config/my_config";
 
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
+// // Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+// @import "config/bootstrap_variables";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -23,7 +23,34 @@ html {
     max-width: 1366px;
 }
 
-// Media queries
-// @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-// @media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
-// @media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+//Media queries
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media (min-width:320px)  {
+
+}
+
+/* smartphones, Android phones, landscape iPhone */
+@media (min-width:375px)  {
+
+}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media (min-width:414px)  {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 1024px) {
+
+}
+
+// Desktop (tablets, 768px and up)
+@media (min-width: 1928px) {
+
+}
