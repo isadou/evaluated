@@ -196,9 +196,9 @@ class MovesController < ApplicationController
     when 11..20
       @move.transport = "Petit Camion (20m3)"
     when 21..50
-      @move.transport = "Porteur"
+      @move.transport = "Camion (50m3) - NB: Permis Poids Lourds exigé"
     when 51..88
-      @move.transport = "Camion remorque"
+      @move.transport = "Gros Camion remorque (88m3) - NB: Permis Poids Lourds exigé"
     end
     @move.save
   end
