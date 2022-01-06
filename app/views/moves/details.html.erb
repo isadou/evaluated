@@ -1,2 +1,7 @@
 <h1>DETAILS</h1>
 <p>description</p>
+<% @rooms.each do |room|%>
+<%= link_to room.name, add_stuffs_move_room_path(@move, room), class: 'btn btn-dark' %>
+<% end  %>
+<br><br>
+<%= "Il vous faudra #{pluralize(@cartons, 'carton')}" %>
