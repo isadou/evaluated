@@ -4,5 +4,4 @@ class Move < ApplicationRecord
 
   #COLLECTIONS
   LOGEMENTS = ["Appartment", "Studio", "Maison"]
-  TRANSPORTS = ["Routier", "Aérien", "Maritime", "Ferroviaire"]
 end
