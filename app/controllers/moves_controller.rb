@@ -1,4 +1,4 @@
-require 'pry-byebug'
+
 class MovesController < ApplicationController
   before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms]
   before_action :set_user, only: [:new, :create]
