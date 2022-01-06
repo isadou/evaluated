@@ -76,7 +76,6 @@ class MovesController < ApplicationController
     @rooms.each do |room|
       @hash_cartons_by_room[room] = carton_room(room)
     end
-
   end
 
   def find_mover
