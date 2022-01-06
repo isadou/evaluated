@@ -1,7 +1,17 @@
 <h1>DETAILS</h1>
 <p>description</p>
 <%@hash_cartons_by_room.each do |key, value|%>
-<%= link_to "#{key.name} #{value}", '#', class: 'btn btn-dark' %>
+<div class="btn btn-dark">
+  <%= key.name %>
+  <br>
+  <%= "#{pluralize(value, 'carton')} "%>
+</div>
 <% end  %>
 <br><br>
-<%= "Il vous faudra #{pluralize(@cartons, 'carton')}" %>
+<%= "Il vous faudra en tout #{pluralize(@cartons, 'carton')}" %>
+<br><br>
+<%@materiels.each do |key, value|%>
+<%= "Il vous faudra #{pluralize(value, key.downcase)}" unless key == "Transport" %>
+<%= "et un #{value.downcase}" if key == "Transport"%>
+<br>
+<% end  %>
