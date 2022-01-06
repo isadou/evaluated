@@ -6,6 +6,7 @@ class MovesController < ApplicationController
 
   # method crud
   def index
+    @moves = Move.where(user_id: current_user)
   end
 
   def new
