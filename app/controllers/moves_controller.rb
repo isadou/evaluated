@@ -1,11 +1,10 @@
 class MovesController < ApplicationController
-  before_action :set_move, only: [:show, :destroy, :update, :edit]
-  before_action :set_user, only: [:new, :create, :index]
-  before_action :set_room, only: [:new, :create, :add_stuffs]
+  before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details]
+  before_action :set_user, only: [:new, :create]
+  before_action :set_room, only: [:add_stuffs]
 
   # method crud
   def index
-    @moves = Move.where(user_id: @user.id)
   end
 
   def new
@@ -59,9 +58,18 @@ class MovesController < ApplicationController
   end
 
   def recap
+    rooms_list
+    @recap = {}
+    @rooms.each do |room|
+      @recap[room.name] = strip_trailing_zero(volume_stuffs(set_stuffs(room)))
+    end
+    @volume_total = strip_trailing_zero(volume_total)
   end
 
   def details
+    rooms_list
+    total_cartons(@rooms)
+    @volume_total = strip_trailing_zero(volume_total)
   end
 
   def find_mover
@@ -74,7 +82,11 @@ class MovesController < ApplicationController
   end
 
   def set_move
-    @move = Move.find(params[:id])
+    if params[:move_id].nil?
+      @move = Move.find(params[:id])
+    else
+      @move = Move.find(params[:move_id])
+    end
   end
 
   def set_user
@@ -83,5 +95,44 @@ class MovesController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
+  end
+
+  def set_stuffs(room)
+    room.stuffs
+  end
+
+  def volume_stuffs(stuffs)
+    sum = 0
+    stuffs.each do |stuff|
+      sum += stuff.volume.to_f
+      unless stuff.volume_carton.nil?
+        sum += stuff.volume_carton.to_f
+      end
+    end
+    sum
+  end
+
+  def volume_total
+    unless @rooms.nil?
+      sum = 0
+      @rooms.each do |room|
+        sum += volume_stuffs(set_stuffs(room))
+      end
+      sum
+    end
+  end
+
+  def total_cartons(rooms)
+    cartons = 0
+    rooms.each do |room|
+      set_stuffs(room).each do |stuff|
+        cartons += stuff.carton
+      end
+    end
+    @cartons = cartons
+  end
+
+  def strip_trailing_zero(number)
+    number.to_s.sub(/\.?0+$/, '')
   end
 end
