@@ -1,4 +1,3 @@
-
 class MovesController < ApplicationController
   before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms]
   before_action :set_user, only: [:new, :create]
@@ -6,7 +5,11 @@ class MovesController < ApplicationController
 
   # method crud
   def index
-    @moves = Move.where(user_id: current_user)
+    @moves = Move.where(user_id: current_user.id)
+    @volumes = {}
+    @moves.each do |move|
+      @volumes[move] = strip_trailing_zero(volume_total_index(move))
+    end
   end
 
   def new
@@ -137,6 +140,16 @@ class MovesController < ApplicationController
     unless @rooms.nil?
       sum = 0
       @rooms.each do |room|
+        sum += volume_stuffs(set_stuffs(room))
+      end
+      sum
+    end
+  end
+
+  def volume_total_index(move)
+    unless move.rooms.nil?
+      sum = 0
+      move.rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
       sum
