@@ -67,9 +67,13 @@ class MovesController < ApplicationController
   end
 
   def details
+    @hash_cartons_by_room = {}
     rooms_list
     total_cartons(@rooms)
     @volume_total = strip_trailing_zero(volume_total)
+    @rooms.each do |room|
+      @hash_cartons_by_room[room] = carton_room(room)
+    end
   end
 
   def find_mover
@@ -130,6 +134,14 @@ class MovesController < ApplicationController
       end
     end
     @cartons = cartons
+  end
+
+  def carton_room(room)
+    cartons_by_room = 0
+    set_stuffs(room).each do |stuff|
+      cartons_by_room += stuff.carton
+    end
+    @cartons_by_room = cartons_by_room
   end
 
   def strip_trailing_zero(number)
