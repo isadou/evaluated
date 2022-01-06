@@ -1,7 +1,6 @@
 <h1>VOTRE MOBILIER</h1>
-<p> Saisissez le mobilier que vous souhaitez déménager</p>
+<h2> <%= " Ajouter le mobilier de #{@room.name.capitalize}" %></h2>
 
-<%= @room.name %>
 
 <%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
   <% @stuffs.each do |stuff|%>
