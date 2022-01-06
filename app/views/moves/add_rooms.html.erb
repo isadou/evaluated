@@ -10,7 +10,7 @@
   <% RoomType::ROOM_TYPES.each do |type| %>
     <div class="form-inputs">
       <%= f.label type %>
-      <%= f.input type.to_sym , as: :string, label: false  %>
+      <%= f.input type.to_sym , input_html: { value: 0, type: 'number' }, label: false  %>
     </div>
   <% end %>
 
