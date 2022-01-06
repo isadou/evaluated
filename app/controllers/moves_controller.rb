@@ -1,5 +1,6 @@
+require 'pry-byebug'
 class MovesController < ApplicationController
-  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details]
+  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms]
   before_action :set_user, only: [:new, :create]
   before_action :set_room, only: [:add_stuffs]
 
@@ -44,6 +45,19 @@ class MovesController < ApplicationController
   end
 
   def create_rooms
+    params["roomscreation"].each do |room_type, number|
+      number = number.to_i
+      unless number.zero?
+        i = 0
+        number.times do
+          name = room_type
+          name += " #{i}" unless i == 0
+          Room.create!(name: name, move_id: @move.id, room_type_id: RoomType.find_by(name: room_type).id)
+          i += 1
+        end
+      end
+    end
+    redirect_to rooms_list_move_path
   end
 
   def rooms_list
