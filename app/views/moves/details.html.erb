@@ -1,5 +1,5 @@
-<h1>DETAILS</h1>
-<p>description</p>
+<h1>DETAILS DE VOTRE DEMENAGEMENT</h1>
+<p>Nombre de cartons par pièces</p>
 <%@hash_cartons_by_room.each do |key, value|%>
 <div class="btn btn-dark">
   <%= key.name %>
@@ -8,10 +8,11 @@
 </div>
 <% end  %>
 <br><br>
-<%= "Il vous faudra en tout #{pluralize(@cartons, 'carton')}" %>
+<p> Matériels à prévoir :</p>
+<%= "total = #{pluralize(@cartons, 'carton')}" %>
 <br><br>
 <%@materiels.each do |key, value|%>
-<%= "Il vous faudra #{pluralize(value, key.downcase)}" unless key == "Transport" %>
+<%= " => #{pluralize(value, key.downcase)}" unless key == "Transport" %>
 <%= "et un #{value.downcase}" if key == "Transport"%>
 <br>
 <% end  %>

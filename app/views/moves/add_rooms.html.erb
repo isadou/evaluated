@@ -1,5 +1,5 @@
-<h1>ROOMS FORM</h1>
-<p> Description </p>
+<h1>VOS PIECES</h1>
+<p> Saisissez les pièces concernées et leurs nombres </p>
 
 <%# Méthode affichage Room.type %>
 <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="form-actions">
-      <%= f.button :submit, 'Next'%>
+      <%= f.button :submit, 'Etape suivante'%>
   </div>
 <% end %>
 

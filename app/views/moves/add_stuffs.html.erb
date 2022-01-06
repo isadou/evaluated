@@ -1,5 +1,5 @@
-<h1>ROOM ITEMS</h1>
-<p> description</p>
+<h1>VOTRE MOBILIER</h1>
+<p> Saisissez le mobilier que vous souhaitez déménager</p>
 
 <%= @room.name %>
 
@@ -11,8 +11,10 @@
     </div>
   <%end %>
     <div class="form-actions">
-      <%= f.button :submit, 'Next'%>
+    <p>Vous avez fini de saisir votre mobilier ?</p>
+      <%= f.button :submit, 'Calculez votre volume'%>
     </div>
 <% end %>
 
+<p> Continuez à saisir le mobilier des autres pièces</p>
 <%= link_to 'back', rooms_list_move_path(@room.move) %>
