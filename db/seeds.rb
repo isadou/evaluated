@@ -38,6 +38,9 @@ CSV.foreach(filepath, csv_options) do |row|
 
   RoomType.create!(name: row['ROOM_TYPE'].rstrip) if RoomType.find_by(name: row['ROOM_TYPE'].rstrip).nil?
 
+  row['VOLUME'] = 0 if row['VOLUME'].nil?
+  row['VOLUME_CARTON'] = 0 if row['VOLUME_CARTON'].nil?
+
   stuff = Stuff.create!(name: row['STUFFS'].rstrip, volume: row['VOLUME'], carton: row['CARTON'], room_type_id: RoomType.find_by(name: row['ROOM_TYPE'].rstrip).id, volume_carton: row['VOLUME_CARTON'])
   p "#{stuff.name} created"
 end
