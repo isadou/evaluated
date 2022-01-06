@@ -14,15 +14,15 @@
   </head>
 
   <body>
+
     <% if current_page?('/') %>
         <%= render 'shared/navbar_home_no_arrow' %>
-      <% else %>
+    <% else %>
         <%= render 'shared/navbar_home' %>
-      <% end %>
+    <% end %>
 
 
     <%= render 'shared/flashes' %>
-
     <%= yield %>
   </body>
 </html>

@@ -3,6 +3,5 @@ class Move < ApplicationRecord
   has_many :rooms, dependent: :destroy
 
   #COLLECTIONS
-  LOGEMENTS = ["Appartment", "Studio", "Maison"]
-  TRANSPORTS = ["Routier", "Aérien", "Maritime", "Ferroviaire"]
+  LOGEMENTS = ["Appartement", "Studio", "Maison"]
 end
