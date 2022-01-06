@@ -1,5 +1,5 @@
 class MovesController < ApplicationController
-  before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details]
+  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details]
   before_action :set_user, only: [:new, :create]
   before_action :set_room, only: [:add_stuffs]
 
@@ -64,16 +64,19 @@ class MovesController < ApplicationController
       @recap[room.name] = strip_trailing_zero(volume_stuffs(set_stuffs(room)))
     end
     @volume_total = strip_trailing_zero(volume_total)
+    get_tranport
   end
 
   def details
     @hash_cartons_by_room = {}
     rooms_list
-    total_cartons(@rooms)
-    @volume_total = strip_trailing_zero(volume_total)
+    @cartons = total_cartons(@rooms)
+    set_materiels(@cartons)
+    @materiels["Transport"] = @move.transport
     @rooms.each do |room|
       @hash_cartons_by_room[room] = carton_room(room)
     end
+
   end
 
   def find_mover
@@ -142,6 +145,35 @@ class MovesController < ApplicationController
       cartons_by_room += stuff.carton
     end
     @cartons_by_room = cartons_by_room
+  end
+
+  def set_materiels(cartons)
+    @materiels = {
+      "Dolly" => 1,
+      "Charriot" => 1,
+      "Sangle" => 4,
+      "Rouleaux de bull pack" => 1,
+      "Boite à outil" => 1,
+      "Rouleaux de scotch" => (cartons / 30.to_f).ceil
+    }
+  end
+
+  def get_tranport
+    rooms_list
+    @volume_total = volume_total.ceil
+    case @volume_total
+    when 0..3
+      @move.transport = "Fourgonnette (3m3)"
+    when 4..10
+      @move.transport = "Fourgon (10m3)"
+    when 11..20
+      @move.transport = "Petit Camion (20m3)"
+    when 21..50
+      @move.transport = "Porteur"
+    when 51..88
+      @move.transport = "Camion remorque"
+    end
+    @move.save
   end
 
   def strip_trailing_zero(number)
