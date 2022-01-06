@@ -14,6 +14,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/button";
+
 
 // Responsif
 html {
@@ -25,60 +27,30 @@ html {
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 @media (min-width:320px)  {
-   .logo_homepage {
-    height: 185px;
-    position: absolute;
-    top: 150px;
-    right: 40px;
-  }
+
 }
 
 /* smartphones, Android phones, landscape iPhone */
 @media (min-width:375px)  {
-   .logo_homepage {
-    height: 200px;
-    position: absolute;
-    top: 190px;
-    right: 60px;
-  }
+
 }
 
 /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 @media (min-width:414px)  {
-  .logo_homepage {
-    height: 220px;
-    position: absolute;
-    top: 200px;
-    right: 70px;
-  }
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .logo_homepage {
-    height: 367px;
-    position: absolute;
-    top: 220px;
-    right: 150px;
-  }
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 1024px) {
-  .logo_homepage {
-    height: 500px;
-    position: absolute;
-    top: 250px;
-    right: 200px;
-  }
+
 }
 
 // Desktop (tablets, 768px and up)
 @media (min-width: 1928px) {
-  .logo_homepage {
-    height: 500px;
-    position: absolute;
-    top: 250px;
-    right: 200px;
-  }
+
 }
