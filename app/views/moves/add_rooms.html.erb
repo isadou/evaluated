@@ -3,14 +3,12 @@
 
 <%# Méthode affichage Room.type %>
 <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
-  <%#= f.error_notification %>
-  <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%#= affichage de chaque room type name en label %>
   <% RoomType::ROOM_TYPES.each do |type| %>
     <div class="form-inputs">
       <%= f.label type %>
-      <%= f.input type.to_sym , input_html: { value: 0, type: 'number' }, label: false  %>
+      <%= f.input type.to_sym, input_html: { value: 0, type: 'number' }, label: false  %>
     </div>
   <% end %>
 

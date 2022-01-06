@@ -1,8 +1,18 @@
 <h1>ROOM ITEMS</h1>
 <p> description</p>
 
-<% @stuffs.each do |stuff|%>
-  <%= stuff.name %>
-<%end %>
+<%= @room.name %>
+
+<%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
+  <% @stuffs.each do |stuff|%>
+    <div class="form-inputs">
+      <%= f.label stuff.name %>
+      <%= f.input stuff.name.to_sym, input_html: { value: 0, type: 'number' }, label: false %>
+    </div>
+  <%end %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Next'%>
+    </div>
+<% end %>
 
 <%= link_to 'back', rooms_list_move_path(@room.move) %>
