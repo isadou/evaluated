@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'csv'
-require 'pry-byebug'
 
 Inventory.destroy_all
 Stuff.destroy_all
