@@ -38,13 +38,16 @@ CSV.foreach(filepath, csv_options) do |row|
 
   RoomType.create!(name: row['ROOM_TYPE'].rstrip) if RoomType.find_by(name: row['ROOM_TYPE'].rstrip).nil?
 
+  row['VOLUME'] = 0 if row['VOLUME'].nil?
+  row['VOLUME_CARTON'] = 0 if row['VOLUME_CARTON'].nil?
+
   stuff = Stuff.create!(name: row['STUFFS'].rstrip, volume: row['VOLUME'], carton: row['CARTON'], room_type_id: RoomType.find_by(name: row['ROOM_TYPE'].rstrip).id, volume_carton: row['VOLUME_CARTON'])
   p "#{stuff.name} created"
 end
 
 Move.all.each do |move|
   RoomType.all.each do |type|
-    room = Room.create!(name: "#{type.name} de #{move.user.first_name}", move_id: move.id, room_type_id: type.id)
+    room = Room.create!(name: "#{type.name.capitalize} de #{move.user.first_name}", move_id: move.id, room_type_id: type.id)
 
     rand(1..3).times do
       stuff = Stuff.where(room_type_id: type.id).sample
