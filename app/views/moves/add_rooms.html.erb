@@ -6,9 +6,9 @@
 
   <%#= affichage de chaque room type name en label %>
   <% RoomType::ROOM_TYPES.each do |type| %>
-    <div class="form-inputs container-rooms">
+    <div class=" container-rooms">
       <%= f.label type, class: 'items-rooms'%>
-      <%= f.input type.to_sym, input_html: { value: 0, type: 'number' }, label: false, class: 'items-rooms'  %>
+      <%= f.input type.to_sym, input_html: { value: 0, type: 'number', min: 0 }, label: false, class: 'items-rooms'  %>
     </div>
   <% end %>
 
