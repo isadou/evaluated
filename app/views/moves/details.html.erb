@@ -1,21 +1,26 @@
 <h1>DETAILS DE VOTRE DEMENAGEMENT</h1>
 <p>Nombre de cartons par pièces</p>
-<%@hash_cartons_by_room.each do |key, value|%>
-<div class="btn btn-dark">
-  <%= key.name %>
-  <br>
-  <%= "#{pluralize(value, 'carton')} "%>
+<div class="horizontal-scroll">
+  <%@hash_cartons_by_room.each do |key, value|%>
+  <div class="btn btn-dark horizontal-scroll__item">
+    <%= key.name %>
+    <br>
+    <%= "#{pluralize(value, 'carton')} "%>
+  </div>
+  <% end  %>
 </div>
-<% end  %>
-<br><br>
+<br>
 <p> Matériels à prévoir :</p>
 <%= "#{pluralize(@cartons, 'carton')} au total" %>
 <br><br>
-<%@materiels.each do |key, value|%>
-  <%unless key == "Transport" %>
-  <%= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
-  <%= "#{value} #{key.downcase}"%>
-  <br>
-  <% end %>
-<% end  %>
-<%= "et un #{@materiels["Transport"].downcase}"%>
+  <%@materiels.each do |key, value|%>
+    <%# <%unless key == "Transport" %>
+    <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
+    <div class="container-materiels border-bottom border-dark mx-2">
+      <span class="items-materiels py-2"><%= key %></span>
+      <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
+    </div>
+    <%#= "#{value} #{key.downcase}"%>
+    <%# end %>
+  <% end  %>
+  <%#= "et un #{@materiels["Transport"].downcase}"%>
