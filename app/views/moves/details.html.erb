@@ -16,7 +16,7 @@
   <%@materiels.each do |key, value|%>
     <%# <%unless key == "Transport" %>
     <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
-    <div class="container-materiels border-bottom border-dark mx-2">
+    <div class="container-materiels">
       <span class="items-materiels py-2"><%= key %></span>
       <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
     </div>

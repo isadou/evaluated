@@ -1,15 +1,19 @@
-.container-stuffs, .container-materiels {
+.container-stuffs, .container-rooms, .container-materiels {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid black;
+  margin: 2em;
 }
 
-.items-stuffs, .items-materiels {
+.items-stuffs, .items-rooms, .items-materiels {
   flex-grow: 1;
   width: 50%;
   height: max-content;
-}
 
+  abbr{display:none;}
+}
+.hs-form-required { display: none; }
 // scroll page details
 .horizontal-scroll {
   display: flex;
