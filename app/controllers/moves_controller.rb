@@ -55,7 +55,7 @@ class MovesController < ApplicationController
         i = 1
         number.times do
           name = room_type
-          # name += " #{i}" unless i == 0
+          name += " #{i}" unless i == 0
           Room.create!(name: name, move_id: @move.id, room_type_id: RoomType.find_by(name: room_type).id)
           i += 1
         end
