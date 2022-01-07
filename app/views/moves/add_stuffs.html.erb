@@ -4,9 +4,9 @@
 
 <%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
   <% @stuffs.each do |stuff|%>
-    <div class="container-stuffs border-bottom border-dark m-2">
+    <div class="container-stuffs">
       <%= f.label stuff.name, class: 'item-stuffs' %>
-      <%= f.input stuff.name.to_sym, input_html: { value: 0, type: 'number' }, label: false, class: 'item-stuffs' %>
+      <%= f.input stuff.name.to_sym, input_html: { value: 0, type: 'number', min: 0 }, label: false, class: 'item-stuffs' %>
     </div>
   <%end %>
     <div class="form-actions">
@@ -15,5 +15,5 @@
     </div>
 <% end %>
 
-<p> Ssaisir le mobilier d'une autre pièce</p>
+<p> Saisir le mobilier d'une autre pièce</p>
 <%= link_to 'back', rooms_list_move_path(@room.move)%>
