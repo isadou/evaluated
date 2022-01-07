@@ -22,7 +22,6 @@
   justify-content: center;
 }
 
-
 // Background image
 .background-top {
   overflow: hidden;
@@ -43,6 +42,13 @@
   position: absolute;
   margin-top: 120px;
   word-wrap: break-word;
+}
+
+// BACKGROUND IMAGE FULL
+
+.container-image-background-full {
+  height: 100vh;
+  background-image: url(/assets/Background_full.svg);
 }
 
 // Responsif

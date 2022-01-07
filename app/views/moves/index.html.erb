@@ -1,18 +1,29 @@
+<div class="container-image-background-full">
 
-<h1>Mes Projets</h1>
+  <div class="my-layout-container">
+    <div class="front-content text-center">
+      <h1 class="mb-4">Mes Projets</h1>
 
-<% @moves.each do |move| %>
-      <tr>
-        <td><%= move.depart %></td>
-        <td><%= move.arrivee %></td>
-        <td><%= move.transport %></td>
-        <td><%= @volumes[move] %></td>
-        <td><%= link_to 'Recap m3', recap_move_path(move) %></td>
-        <td><%= link_to 'Modifier', edit_move_path(move) %></td>
-        <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Liste des pièces', add_rooms_move_path(move) %></td>
-        <br>
-      </tr>
-    <% end %>
-    <br>
-    <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-gradient" %>
+      <% @moves.each do |move| %>
+      <div class="card-form mb-3">
+            <tr>
+              <td><%= move.depart %></td>
+              <td><%= move.arrivee %></td>
+              <td><%= move.transport %></td>
+              <td><%= @volumes[move] %> m3</td>
+              <br>
+              <td><%= link_to 'Modifier', edit_move_path(move) %></td>
+              <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <br>
+              <td><%= link_to 'Recap m3', recap_move_path(move) %></td>
+              <td><%= link_to 'Liste des pièces', add_rooms_move_path(move) %></td>
+              <br>
+            </tr>
+      </div>
+          <% end %>
+          <br>
+          <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-gradient" %>
+    </div>
+  </div>
+
+</div>
