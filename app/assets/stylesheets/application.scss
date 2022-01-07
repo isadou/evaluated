@@ -16,12 +16,41 @@
 @import "pages/index";
 @import "components/button";
 
+// Container application
+.my-layout-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+// Background image
+.background-top {
+  overflow: hidden;
+  width: 500px;
+  z-index: 0;
+  position: absolute;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.container-image-centered{
+ display: flex;
+ justify-content: center;
+}
+
+.front-content {
+  z-index: 3;
+  position: absolute;
+  margin-top: 120px;
+  word-wrap: break-word;
+}
 
 // Responsif
 html {
     margin:    0 auto;
     max-width: 1366px;
 }
+
 
 //Media queries
 

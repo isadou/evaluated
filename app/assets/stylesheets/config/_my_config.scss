@@ -7,7 +7,7 @@
   padding: 0;
 }
 // Les couleurs de l'application :
-$background: #0F0E17;
+$background: #B6B6B6;
 $headline: #FFFFFE;
 $paragraph: #A7A9BE;
 $button: #FF8906;
@@ -25,7 +25,7 @@ $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 // Les Balises générales :
 body {
-  background-color: $background;
+  background-color: $background !important;
 }
 h1,
 h2,

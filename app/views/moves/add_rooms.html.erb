@@ -1,21 +1,34 @@
-<h1>VOS PIECES</h1>
-<p> Saisissez les pièces concernées et leurs nombres </p>
+<div class="container-image-centered">
+  <%= image_tag("Background_top.svg", :class => "background-top")%>
+</div>
 
-<%# Méthode affichage Room.type %>
-<%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
 
-  <%#= affichage de chaque room type name en label %>
-  <% RoomType::ROOM_TYPES.each do |type| %>
-    <div class=" container-rooms">
-      <%= f.label type, class: 'items-rooms'%>
-      <%= f.input type.to_sym, input_html: { value: 0, type: 'number', min: 0 }, label: false, class: 'items-rooms'  %>
-    </div>
-  <% end %>
+<div class="my-layout-container">
+  <div class="front-content  card-form">
+    <h1>VOS PIECES</h1>
+    <p> Saisissez les pièces concernées et leurs nombres </p>
 
-  <div class="form-actions">
-      <%= f.button :submit, 'Etape suivante', class: 'btn btn-secondary w-100 mx-1'%>
+    <%# Méthode affichage Room.type %>
+    <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
+
+      <%#= affichage de chaque room type name en label %>
+      <% RoomType::ROOM_TYPES.each do |type| %>
+        <div class=" container-rooms">
+          <%= f.label type, class: 'items-rooms'%>
+          <%= f.input type.to_sym, input_html: { value: 0, type: 'number', min: 0 }, label: false, class: 'items-rooms'  %>
+        </div>
+      <% end %>
+
+      <div class="form-actions">
+          <%= f.button :submit, 'Etape suivante', class: 'btn btn-secondary w-100 mx-1'%>
+      </div>
+    <% end %>
+
+    <%# A SUPPRIMER DANS UN SECOND TEMPS %>
+    <%= link_to 'back', new_move_path %>
+
+
+    <%= link_to 'next', rooms_list_move_path %>
   </div>
-<% end %>
+</div>
 
-<%# A SUPPRIMER DANS UN SECOND TEMPS %>
-<%= link_to 'back', new_move_path %>
