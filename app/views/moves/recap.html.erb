@@ -1,10 +1,12 @@
 <h1>VOTRE VOLUME</h1>
 <br>
-<%= "Volume total : #{@volume_total} m3" %>
+<%= "Total : #{@volume_total} m3" %>
 <br><br>
 <p>détails de votre volume par pièce</p>
 <%@recap.each do |key, value|%>
 <%= "#{key} #{value} m3"%>
 <br>
 <% end %>
-<%= link_to 'next', details_move_path %>
+<br>
+<%= link_to 'Détails', details_move_path, class: 'btn btn-secondary w-100 mx-1' %>
+<%= link_to 'back', moves_path  %>

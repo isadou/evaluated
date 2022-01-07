@@ -1,7 +1,7 @@
 <div class="container">
 
-<h1>ROOM LIST</h1>
-<p> Description </p>
+<h1>LISTE DE VOS PIECES</h1>
+<p> Précisez le mobilier de chaque pièce </p>
 
 <% @rooms.each do |room|%>
   <% if room.stuffs.length.zero? %>
@@ -19,7 +19,8 @@
   <% end %>
 <br>
 <% end  %>
-
+<br>
+<%= link_to 'Etape suivante', recap_move_path, class: 'btn btn-secondary w-100 mx-1' %>
 <%= link_to 'back', add_rooms_move_path %>
-<%= link_to 'next', recap_move_path %>
+
 </div>
