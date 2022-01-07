@@ -40,7 +40,7 @@ class MovesController < ApplicationController
 
   def destroy
     @move.destroy
-    redirect_to root_path
+    redirect_to moves_path
   end
 
   # method perso evaluat3d
