@@ -18,7 +18,9 @@
     </div>
     <% end  %>
   </div>
+    
   <br>
+    
   <p> Matériels à prévoir :</p>
   <%= "#{pluralize(@cartons, 'carton')} au total" %>
   <br><br>
@@ -33,5 +35,6 @@
       <%# end %>
     <% end  %>
     <%#= "et un #{@materiels["Transport"].downcase}"%>
+    <%= link_to 'back', recap_move_path  %>
   </div>
 </div>

@@ -7,9 +7,10 @@
         <td><%= move.arrivee %></td>
         <td><%= move.transport %></td>
         <td><%= @volumes[move] %></td>
-        <td><%= link_to 'Voir', recap_move_path(move) %></td>
-        <td><%= link_to 'Editer', edit_move_path(move) %></td>
+        <td><%= link_to 'Recap m3', recap_move_path(move) %></td>
+        <td><%= link_to 'Modifier', edit_move_path(move) %></td>
         <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Liste des pièces', add_rooms_move_path(move) %></td>
         <br>
       </tr>
     <% end %>
