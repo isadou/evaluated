@@ -91,7 +91,7 @@ class MovesController < ApplicationController
     @rooms.each do |room|
       @recap[room.name] = strip_trailing_zero(volume_stuffs(set_stuffs(room)))
     end
-    @volume_total = volume_total
+    @volume_total = strip_trailing_zero(volume_total)
     get_tranport
   end
 
@@ -116,12 +116,11 @@ class MovesController < ApplicationController
   end
 
   def set_move
-    unless params[:move_id].nil?
-      move = Move.find(params[:move_id])
+    if params[:move_id].nil?
+      @move = Move.find(params[:id])
     else
-      move = Move.find(params[:id])
+      @move = Move.find(params[:move_id])
     end
-    @move = move
   end
 
   def set_user
