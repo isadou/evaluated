@@ -1,14 +1,17 @@
+<div class="container">
+
 <h1>ROOM LIST</h1>
 <p> Description </p>
 
 <% @rooms.each do |room|%>
-<%= room.name %>
-<%= room.room_type.name %>
-<%= link_to room.name, add_stuffs_move_room_path(@move, room) %>
+  <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary w-100 m-1" do  %>
+    <span class="h4"><%= room.name.upcase %> </span>
+    <br>
+     <span class="small">Remplir</span>
+  <% end %>
 <br>
 <% end  %>
-<%# ERREUR DE PATH  %>
-<%# <%= link_to "Cuisine", add_stuffs_move_room_path %>
 
 <%= link_to 'back', add_rooms_move_path %>
 <%= link_to 'next', recap_move_path %>
+</div>

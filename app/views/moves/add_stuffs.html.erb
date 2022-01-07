@@ -1,20 +1,19 @@
 <h1>VOTRE MOBILIER</h1>
-<p> Saisissez le mobilier que vous souhaitez déménager</p>
+<h2> <%= " Ajouter le mobilier de #{@room.name.capitalize}" %></h2>
 
-<%= @room.name %>
 
 <%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
   <% @stuffs.each do |stuff|%>
-    <div class="form-inputs">
-      <%= f.label stuff.name %>
-      <%= f.input stuff.name.to_sym, input_html: { value: 0, type: 'number' }, label: false %>
+    <div class="container-stuffs border-bottom border-dark m-2">
+      <%= f.label stuff.name, class: 'item-stuffs' %>
+      <%= f.input stuff.name.to_sym, input_html: { value: 0, type: 'number' }, label: false, class: 'item-stuffs' %>
     </div>
   <%end %>
     <div class="form-actions">
     <p>Vous avez fini de saisir votre mobilier ?</p>
-      <%= f.button :submit, 'Calculez votre volume'%>
+      <%= f.button :submit, 'Valider', class: 'btn btn-secondary w-100 mx-1' %>
     </div>
 <% end %>
 
-<p> Continuez à saisir le mobilier des autres pièces</p>
-<%= link_to 'back', rooms_list_move_path(@room.move) %>
+<p> Ssaisir le mobilier d'une autre pièce</p>
+<%= link_to 'back', rooms_list_move_path(@room.move)%>

@@ -1,7 +1,7 @@
 class MovesController < ApplicationController
   before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms]
   before_action :set_user, only: [:new, :create]
-  before_action :set_room, only: [:add_stuffs]
+  before_action :set_room, only: [:add_stuffs, :create_stuffs]
 
   # method crud
   def index
@@ -73,6 +73,16 @@ class MovesController < ApplicationController
   end
 
   def create_stuffs
+    set_move
+    params["stuffscreation"].each do |stuff, number|
+      number = number.to_i
+      unless number.zero?
+        number.times do
+          Inventory.create!(room_id: @room.id, stuff_id: Stuff.find_by(name: stuff).id)
+        end
+      end
+    end
+    redirect_to rooms_list_move_path(@move)
   end
 
   def recap
@@ -126,14 +136,14 @@ class MovesController < ApplicationController
   end
 
   def volume_stuffs(stuffs)
-    sum = 0
+    sum = 0.0
     stuffs.each do |stuff|
-      sum += stuff.volume.to_f
+      sum += stuff.volume
       unless stuff.volume_carton.nil?
-        sum += stuff.volume_carton.to_f
+        sum += stuff.volume_carton
       end
     end
-    sum
+    sum = sum.ceil(1)
   end
 
   def volume_total
@@ -187,8 +197,8 @@ class MovesController < ApplicationController
 
   def get_tranport
     rooms_list
-    @volume_total = volume_total.ceil
-    case @volume_total
+    volume = volume_total.ceil
+    case volume
     when 0..3
       @move.transport = "Fourgonnette (3m3)"
     when 4..10
