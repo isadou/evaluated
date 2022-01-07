@@ -7,10 +7,12 @@
       <% @moves.each do |move| %>
       <div class="card-form mb-3">
             <tr>
-              <td><%= move.depart %></td>
-              <td><%= move.arrivee %></td>
-              <td><%= move.transport %></td>
-              <td><%= @volumes[move] %> m3</td>
+              <td> Démenagement de <%= move.depart %></td>
+              <td> à <%= move.arrivee %></td>
+              <br>
+              <td>Transport : <%= move.transport.downcase %></td>
+              <br>
+              <td>Volume total : <%= @volumes[move] %> m3</td>
               <br>
               <td><%= link_to 'Modifier', edit_move_path(move) %></td>
               <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
