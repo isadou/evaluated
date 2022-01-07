@@ -7,7 +7,11 @@
   <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary w-100 m-1" do  %>
     <span class="h4"><%= room.name.upcase %> </span>
     <br>
+    <% if room.stuffs.length.zero? %>
      <span class="small">Remplir</span>
+     <% else %>
+     <span class="small"><%= "#{pluralize(room.stuffs.length, "meuble")}" %></span>
+     <% end %>
   <% end %>
 <br>
 <% end  %>
