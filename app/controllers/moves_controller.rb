@@ -52,7 +52,7 @@ class MovesController < ApplicationController
     params["roomscreation"].each do |room_type, number|
       number = number.to_i
       unless number.zero?
-        i = 0
+        i = 1
         number.times do
           name = room_type
           name += " #{i}" unless i == 0
