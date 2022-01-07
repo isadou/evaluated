@@ -1,7 +1,14 @@
-<div>
-<H1> FORMULAIRE DE DEPART </H1>
 
-<%= render 'form_new_move', move: @move %>
+  <div class="container-image-centered">
+    <%= image_tag("Background_top.svg", :class => "background-top")%>
+  </div>
 
-<%= link_to 'back', root_path %>
-</div>
+  <div class="my-layout-container">
+    <div class="front-content  card-form">
+      <H1> FORMULAIRE DE DEPART </H1>
+
+      <%= render 'form_new_move', move: @move %>
+
+      <%= link_to 'back', root_path %>
+    </div>
+  </div>

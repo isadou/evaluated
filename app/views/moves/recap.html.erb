@@ -1,10 +1,20 @@
-<h1>VOTRE VOLUME</h1>
-<br>
-<%= "Volume total : #{@volume_total} m3" %>
-<br><br>
-<p>détails de votre volume par pièce</p>
-<%@recap.each do |key, value|%>
-<%= "#{key} #{value} m3"%>
-<br>
-<% end %>
-<%= link_to 'next', details_move_path %>
+<div class="container-image-centered">
+  <%= image_tag("Background_top.svg", :class => "background-top")%>
+</div>
+
+
+
+<div class="my-layout-container">
+  <div class="front-content  card-form">
+  <h1>VOTRE VOLUME</h1>
+  <br>
+  <%= "Volume total : #{@volume_total} m3" %>
+  <br><br>
+  <p>détails de votre volume par pièce</p>
+  <%@recap.each do |key, value|%>
+  <%= "#{key} #{value} m3"%>
+  <br>
+  <% end %>
+  <%= link_to 'next', details_move_path %>
+  </div>
+</div>

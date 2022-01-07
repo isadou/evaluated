@@ -1,26 +1,37 @@
-<h1>DETAILS DE VOTRE DEMENAGEMENT</h1>
-<p>Nombre de cartons par pièces</p>
-<div class="horizontal-scroll">
-  <%@hash_cartons_by_room.each do |key, value|%>
-  <div class="btn btn-secondary done horizontal-scroll__item">
-    <%= key.name %>
-    <br>
-    <%= "#{pluralize(value, 'carton')} "%>
-  </div>
-  <% end  %>
+<div class="container-image-centered">
+  <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
-<br>
-<p> Matériels à prévoir :</p>
-<%= "#{pluralize(@cartons, 'carton')} au total" %>
-<br><br>
-  <%@materiels.each do |key, value|%>
-    <%# <%unless key == "Transport" %>
-    <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
-    <div class="container-materiels">
-      <span class="items-materiels py-2"><%= key %></span>
-      <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
+
+
+
+<div class="my-layout-container">
+  <div class="front-content  card-form">
+
+  <h1>DETAILS DE VOTRE DEMENAGEMENT</h1>
+  <p>Nombre de cartons par pièces</p>
+  <div class="horizontal-scroll">
+    <%@hash_cartons_by_room.each do |key, value|%>
+    <div class="btn btn-secondary done horizontal-scroll__item">
+      <%= key.name %>
+      <br>
+      <%= "#{pluralize(value, 'carton')} "%>
     </div>
-    <%#= "#{value} #{key.downcase}"%>
-    <%# end %>
-  <% end  %>
-  <%#= "et un #{@materiels["Transport"].downcase}"%>
+    <% end  %>
+  </div>
+  <br>
+  <p> Matériels à prévoir :</p>
+  <%= "#{pluralize(@cartons, 'carton')} au total" %>
+  <br><br>
+    <%@materiels.each do |key, value|%>
+      <%# <%unless key == "Transport" %>
+      <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
+      <div class="container-materiels">
+        <span class="items-materiels py-2"><%= key %></span>
+        <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
+      </div>
+      <%#= "#{value} #{key.downcase}"%>
+      <%# end %>
+    <% end  %>
+    <%#= "et un #{@materiels["Transport"].downcase}"%>
+  </div>
+</div>
