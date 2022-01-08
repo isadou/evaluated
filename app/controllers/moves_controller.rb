@@ -18,6 +18,9 @@ class MovesController < ApplicationController
 
   def create
     @move = Move.new(move_params)
+    results = Geocoder.search(params[:move][:arrivee])
+    @move.arrivee_latitude = results.first.coordinates[0]
+    @move.arrivee_longitude = results.first.coordinates[1]
     @move.user = @user
     if @move.save
       # redirection vers la page
