@@ -24,12 +24,17 @@
 
 // Background image
 .background-top {
-  overflow: hidden;
-  width: 500px;
+  align-self: center;
+  /* overflow: hidden !important; */
+  width: 120%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 60%;
   z-index: 0;
   position: absolute;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  align-self: center;
 }
 
 .container-image-centered{
@@ -52,9 +57,14 @@
 }
 
 // Responsif
-html {
-    margin:    0 auto;
+.my-layout-container {
+    width: 100%;
+    margin: 0 auto;
     max-width: 1366px;
+}
+
+body {
+  overflow: hidden;
 }
 
 
