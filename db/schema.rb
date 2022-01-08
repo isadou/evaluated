@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_135447) do
+ActiveRecord::Schema.define(version: 2022_01_08_134004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,18 @@ ActiveRecord::Schema.define(version: 2022_01_06_135447) do
   end
 
   create_table "moves", force: :cascade do |t|
-    t.text "depart"
-    t.text "arrivee"
+    t.string "depart"
+    t.string "arrivee"
     t.string "house_type"
     t.boolean "acces", default: true
     t.string "transport"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "depart_latitude"
+    t.float "depart_longitude"
+    t.float "arrivee_latitude"
+    t.float "arrivee_longitude"
     t.index ["user_id"], name: "index_moves_on_user_id"
   end
 
