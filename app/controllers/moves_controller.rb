@@ -1,5 +1,6 @@
+require 'pry-byebug'
 class MovesController < ApplicationController
-  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms]
+  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
   before_action :set_room, only: [:add_stuffs, :create_stuffs]
 
@@ -18,10 +19,12 @@ class MovesController < ApplicationController
 
   def create
     @move = Move.new(move_params)
+    @move.user = @user
+    # geolocalisation de l'adresse d'arrivee
     results = Geocoder.search(params[:move][:arrivee])
+    # ajout des coordonnees
     @move.arrivee_latitude = results.first.coordinates[0]
     @move.arrivee_longitude = results.first.coordinates[1]
-    @move.user = @user
     if @move.save
       # redirection vers la page
       redirect_to add_rooms_move_path(@move)
@@ -49,16 +52,19 @@ class MovesController < ApplicationController
   # method perso evaluat3d
 
   def add_rooms
+    rooms_list
   end
 
   def create_rooms
     params["roomscreation"].each do |room_type, number|
-      number = number.to_i
+      room_type_id = RoomType.find_by(name: room_type).id
+      number_rooms = @move.rooms.where(room_type_id: room_type_id).length
+      number = number.to_i - number_rooms
       unless number.zero?
-        i = 1
+        i = number_rooms + 1
         number.times do
           name = room_type
-          name += " #{i}" unless i == 0
+          name += " #{i}"
           Room.create!(name: name, move_id: @move.id, room_type_id: RoomType.find_by(name: room_type).id)
           i += 1
         end
@@ -68,7 +74,7 @@ class MovesController < ApplicationController
   end
 
   def rooms_list
-    @rooms = @move.rooms
+    @rooms = @move.rooms.order(:name)
   end
 
   def add_stuffs
@@ -78,10 +84,15 @@ class MovesController < ApplicationController
   def create_stuffs
     set_move
     params["stuffscreation"].each do |stuff, number|
-      number = number.to_i
+      stuff_id = Stuff.find_by(name: stuff).id
+      number = number.to_i - @room.inventories.where(stuff_id: stuff_id).length
       unless number.zero?
-        number.times do
-          Inventory.create!(room_id: @room.id, stuff_id: Stuff.find_by(name: stuff).id)
+        if number.positive?
+          number.times do
+            Inventory.create(room_id: @room.id, stuff_id: stuff_id)
+          end
+        else
+          Inventory.where(["room_id = ? and stuff_id = ?", @room.id, stuff_id]).limit(number.abs).delete_all
         end
       end
     end
