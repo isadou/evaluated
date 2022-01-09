@@ -7,8 +7,7 @@
 <div class="my-layout-container">
   <div class="front-content  card-form">
 
-  <h1>DETAILS DE VOTRE DEMENAGEMENT</h1>
-  <p>Nombre de cartons par pièces</p>
+  <h2>VOTRE DEMENAGEMENT</h2>
   <div class="horizontal-scroll">
     <%@hash_cartons_by_room.each do |key, value|%>
     <div class="btn btn-secondary done horizontal-scroll__item">
@@ -20,13 +19,19 @@
   </div>
 
   <br>
+
+  <p>NOMBRE DE CARTONS TOTAL</p>
+  <p class="style-carton"><%= @cartons %></p>
+   <%= image_tag("icon/CARTON.png", class: "carton-img")%>
+
   <p> Nombre de personne :</p>
   <%= "#{@effectif_total} volontaires" %>
 
 
-  <p> Matériels à prévoir :</p>
-  <%= "#{pluralize(@cartons, 'carton')} au total" %>
-  <br><br>
+
+
+  <p> MATERIELS A PREVOIR </p>
+  <br>
     <%@materiels.each do |key, value|%>
       <%# <%unless key == "Transport" %>
       <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>

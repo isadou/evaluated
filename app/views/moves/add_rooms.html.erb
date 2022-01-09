@@ -2,11 +2,9 @@
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
 
-
 <div class="my-layout-container">
   <div class="front-content  card-form">
-    <h1>VOS PIECES</h1>
-    <p> Saisissez les pièces concernées et leurs nombres </p>
+    <h2>SELECTIONNER VOS PIECES</h2>
 
     <%# Méthode affichage Room.type %>
     <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
@@ -20,7 +18,7 @@
       <% end %>
 
       <div class="form-actions">
-          <%= f.button :submit, 'Etape suivante', class: 'btn btn-secondary w-100 mx-1'%>
+          <%= f.button :submit, 'SUIVANT', class: 'btn btn-secondary w-100 mx-1'%>
       </div>
     <% end %>
 

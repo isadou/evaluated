@@ -6,19 +6,20 @@
 
 <div class="my-layout-container">
   <div class="front-content  card-form">
-    <h1>VOTRE VOLUME</h1>
-    <br>
-    <%= "Total : #{@volume_total} m3" %>
+    <h1>VOLUME TOTAL</h1>
+    <h1><%= "#{@volume_total} M3" %></h1>
     <br><br>
-    <p>détails de votre volume par pièce</p>
+    <p>DETAIL DE VOTRE VOLUME PAR PIECE</p>
     <%@recap.each do |key, value|%>
-      <%= "#{key.capitalize} a un volume de #{value} m3"%>
+      <%= "#{key.upcase} -> #{value} m3"%>
       <br>
     <% end %>
 
     <br>
 
     <%= link_to 'Détails', details_move_path, class: 'btn btn-secondary w-100 mx-1' %>
+    <%= link_to 'PROF', find_mover_move_path, class: 'btn btn-warning w-100 mx-1' %>
+
     <%= link_to 'back', moves_path  %>
 
   </div>

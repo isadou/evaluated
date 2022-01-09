@@ -49,6 +49,19 @@
   word-wrap: break-word;
 }
 
+// Definition du style du nombre total de carton dans pages detail
+.style-carton {
+  position: relative;
+font-family: 'Baloo Chettan 2', cursive;
+font-size: 40px;
+font-style: normal;
+// font-weight: 300;
+// line-height: 144px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
 // BACKGROUND IMAGE FULL
 
 .container-image-background-full {
