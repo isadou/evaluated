@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'csv'
+require 'pry-byebug'
 
 Inventory.destroy_all
 Stuff.destroy_all
@@ -20,6 +21,9 @@ p "#{user.email} created"
 
 # pour les moves le champ transport sera déterminé en fonction du volume... l user ne peut pas le saisir
 demenagement = Move.new(depart: "25 chemin des brumes, Fos sur Mer", arrivee: "Paris", house_type: "appartement", acces: 'true', transport: "", user_id: user.id)
+results = Geocoder.search(demenagement.arrivee)
+demenagement.arrivee_latitude = results.first.coordinates[0]
+demenagement.arrivee_longitude = results.first.coordinates[1]
 demenagement.save!
 p "#{demenagement.user.first_name}'s move created"
 
@@ -27,6 +31,9 @@ user = User.create!(email: "georgia@evaluated.com", first_name: "Georgia", last_
 p "#{user.email} created"
 
 demenagement = Move.new(depart: "9 rue crudere, 13006 Marseille", arrivee: "Nouvelle Calédonie", house_type: "maison", acces: 'false', transport: "", user_id: user.id)
+results = Geocoder.search(demenagement.arrivee)
+demenagement.arrivee_latitude = results.first.coordinates[0]
+demenagement.arrivee_longitude = results.first.coordinates[1]
 demenagement.save!
 p "#{demenagement.user.first_name}'s move created"
 
