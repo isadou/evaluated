@@ -113,6 +113,7 @@ class MovesController < ApplicationController
     @hash_cartons_by_room = {}
     rooms_list
     @cartons = total_cartons(@rooms)
+    @effectif_total = strip_trailing_zero(effectif_total)
     set_materiels(@cartons)
     @materiels["Transport"] = @move.transport
     @rooms.each do |room|
@@ -229,5 +230,25 @@ class MovesController < ApplicationController
 
   def strip_trailing_zero(number)
     number.to_s.sub(/\.?0+$/, '')
+  end
+
+  def effectif_total
+    unless @rooms.nil?
+      sum = 0
+      @rooms.each do |room|
+        if volume_total <= 20
+          sum == 2
+        else
+        sum = volume_total / 10
+        end
+      end
+      sum.floor
+    end
+  end
+
+  def pizza_total
+  end
+
+  def biere_total
   end
 end
