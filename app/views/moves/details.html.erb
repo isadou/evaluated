@@ -2,36 +2,38 @@
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
 
-
+<div class=".card-title-white">
+  <h2>VOTRE DEMENAGEMENT</h2>
+</div>
 
 <div class="my-layout-container">
-  <div class="front-content  card-form">
-
-  <h2>VOTRE DEMENAGEMENT</h2>
-  <div class="horizontal-scroll">
-    <%@hash_cartons_by_room.each do |key, value|%>
-    <div class="btn btn-secondary done horizontal-scroll__item">
-      <%= key.name %>
-      <br>
-      <%= "#{pluralize(value, 'carton')} "%>
+  <div class="front-content card-form">
+    <div class="horizontal-scroll">
+      <%@hash_cartons_by_room.each do |key, value|%>
+        <div class="btn btn-secondary done horizontal-scroll__item">
+          <%= key.name %>
+          <br>
+          <%= "#{pluralize(value, 'carton')} "%>
+        </div>
+      <% end  %>
     </div>
-    <% end  %>
-  </div>
 
   <br>
 
   <p>NOMBRE DE CARTONS TOTAL</p>
-  <p class="style-carton"><%= @cartons %></p>
-   <%= image_tag("icon/CARTON.png", class: "carton-img")%>
+    <div class= "container-details">
+      <p class="style-carton"><%= @cartons %></p>
+      <%= image_tag("icon/Carton.png", class: "carton-img")%>
+    </div>
 
-  <p> Nombre de personne :</p>
-  <%= "#{@effectif_total} volontaires" %>
-
-
+  <p>NOMBRE DE VOLONTAIRES</p>
+    <div class= "container-details">
+      <p class="style-effectif"><%= @effectif_total %></p>
+      <%= image_tag("icon/demenageur.png", class: "effectif-img")%>
+    </div>
 
 
   <p> MATERIELS A PREVOIR </p>
-  <br>
     <%@materiels.each do |key, value|%>
       <%# <%unless key == "Transport" %>
       <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
@@ -43,7 +45,7 @@
       <%# end %>
     <% end  %>
     <%#= "et un #{@materiels["Transport"].downcase}"%>
-    <%= link_to 'Suivant', moves_path, class: 'btn btn-secondary w-100 mx-1' %>
+    <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
     <%= link_to 'back', recap_move_path  %>
   </div>
 </div>

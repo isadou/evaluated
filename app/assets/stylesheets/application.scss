@@ -50,16 +50,15 @@
 }
 
 // Definition du style du nombre total de carton dans pages detail
-.style-carton {
-  position: relative;
-font-family: 'Baloo Chettan 2', cursive;
-font-size: 40px;
-font-style: normal;
-// font-weight: 300;
-// line-height: 144px;
-letter-spacing: 0em;
-text-align: center;
-
+.style-carton, .style-effectif {
+  font-family: "Baloo Chettan 2", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  /* line-height: 144px; */
+  text-align: center;
+  color: #F25F4C;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 // BACKGROUND IMAGE FULL
