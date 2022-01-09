@@ -15,16 +15,22 @@
   top: 215px;
 }
 
-// creation du style SIGN IN sur la home page
-// .sign_in_homepage {
-// margin-top: 350px;
+// creation du style SIGN IN sur la home page par Geo
+.sign_in_homepage {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
 
-// font-family: 'Baloo Chettan 2', cursive;
-// font-style: normal;
-// font-weight: normal;
-// font-size: 24px;
-// line-height: 35px;
-// text-align: center;
+}
 
-// color: #FFFFFF;
-// }
+.sign_in_homepage:hover {
+      text-decoration: none;
+      color: #A7A9BE;
+    }

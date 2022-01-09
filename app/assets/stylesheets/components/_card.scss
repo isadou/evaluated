@@ -63,3 +63,17 @@
   min-width: 350px;
   width: 80%;
 }
+
+//CONTAINER DE DETAILS CARTONS ET EFFECTIF
+.container-details {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+// carte pour les titres sur les background à voir ensemble
+.card-title-white > h2 {
+  z-index: 0;
+  background-color: transparent;
+  font-style: white;
+}
