@@ -15,6 +15,7 @@
           <span class="h4"><%= room.name.upcase %> </span>
           <br>
           <span class="small">Remplir</span>
+          <%# <% link_to "supprimer", rooms_list_move_path, method: :delete, class: 'btn', data: { confirm: 'Are you sure?' } %>
         <% end %>
       <% else %>
           <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary card-room done w-100 m-1 mt-4" do  %>
@@ -25,9 +26,9 @@
       <% end %>
     <br>
     <% end  %>
-    
+
     <br>
-    
+
     <%= link_to 'Etape suivante', recap_move_path, class: 'btn btn-secondary w-100 mx-1' %>
     <%= link_to 'back', add_rooms_move_path %>
   </div>
