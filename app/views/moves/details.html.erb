@@ -32,6 +32,18 @@
       <%= image_tag("icon/demenageur.png", class: "effectif-img")%>
     </div>
 
+    <p>NOMBRE DE PIZZAS</p>
+    <div class= "container-details">
+      <p class="style-pizza"><%= @pizza_total %></p>
+      <%= image_tag("icon/Pizza.png", class: "pizza-img")%>
+    </div>
+
+    <p>NOMBRE DE BIERES</p>
+    <div class= "container-details">
+      <p class="style-biere"><%= @biere_total %></p>
+      <%= image_tag("icon/Biere.png", class: "biere-img")%>
+    </div>
+
 
   <p> MATERIELS A PREVOIR </p>
     <%@materiels.each do |key, value|%>

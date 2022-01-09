@@ -114,6 +114,8 @@ class MovesController < ApplicationController
     rooms_list
     @cartons = total_cartons(@rooms)
     @effectif_total = strip_trailing_zero(effectif_total)
+    @pizza_total = strip_trailing_zero(pizza_total)
+    @biere_total = strip_trailing_zero(biere_total)
     set_materiels(@cartons)
     @materiels["Transport"] = @move.transport
     @rooms.each do |room|
@@ -236,10 +238,10 @@ class MovesController < ApplicationController
     unless @rooms.nil?
       sum = 0
       @rooms.each do |room|
-        if volume_total <= 20
-          sum == 2
+        if volume_total >= 20
+          sum = volume_total / 10
         else
-        sum = volume_total / 10
+          sum = 2
         end
       end
       sum.floor
@@ -247,8 +249,22 @@ class MovesController < ApplicationController
   end
 
   def pizza_total
+    unless @rooms.nil?
+      sum = 0
+      @rooms.each do |room|
+        sum = effectif_total * 0.75
+      end
+      sum.ceil
+    end
   end
 
   def biere_total
+    unless @rooms.nil?
+      sum = 0
+      @rooms.each do |room|
+        sum = effectif_total * 3
+      end
+      sum.ceil
+    end
   end
 end
