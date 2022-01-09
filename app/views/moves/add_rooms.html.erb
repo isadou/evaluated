@@ -13,7 +13,7 @@
       <% RoomType::ROOM_TYPES.each do |type| %>
         <div class=" container-rooms">
           <%= f.label type, class: 'items-rooms'%>
-          <%= f.input type.to_sym, input_html: { value: 0, type: 'number', min: 0 }, label: false, class: 'items-rooms'  %>
+          <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
         </div>
       <% end %>
 
