@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= favicon_link_tag asset_path("logo_Evaluat3d.svg") %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -14,7 +14,6 @@
   </head>
 
   <body>
-
     <% if current_page?('/') %>
         <%= render 'shared/navbar_home_no_arrow' %>
     <% else %>
