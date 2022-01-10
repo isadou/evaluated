@@ -283,4 +283,30 @@ class MovesController < ApplicationController
 
   def get_distance
   end
+
+  def km
+    unless @moves.nil?
+      set_move
+      itineraire = []
+      @moves.each do |move|
+        results_a = Geocoder.search(params[:move][:depart])
+        @move.depart_latitude = results_a.first.coordinates[0]
+        @move.depart_longitude = results_a.first.coordinates[1]
+        results_b = Geocoder.search(params[:move][:arrivee])
+        @move.arrivee_latitude = results_b.first.coordinates[0]
+        @move.arrivee_longitude = results_b.first.coordinates[1]
+        @distance = Geocoder::Calculations.distance_between([@move.depart_latitude,@move.depart_longitude], [@move.arrivee_latitude,@move.arrivee_longitude], units: :km)
+      end
+      @distance
+    end
+  end
+
+  def prix_perso
+    #location moyen camion + km + prix carton + pizza + biere
+  end
+
+  def prix_pro
+    # prix camion + demenageur + carton + km + marge
+  end
+
 end
