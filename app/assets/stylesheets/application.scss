@@ -45,7 +45,6 @@
 .front-content {
   z-index: 3;
   position: absolute;
-  margin-top: 120px;
   word-wrap: break-word;
 }
 
@@ -79,6 +78,17 @@ body {
   overflow-x: hidden;
 }
 
+// TEXT TOP PAGES
+.text-pages-top {
+  z-index: 500;
+  position: relative;
+  margin-top: 12vh;
+  text-align: center;
+}
+
+.title-white {
+  color: white;
+}
 
 //Media queries
 
