@@ -2,11 +2,13 @@
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
 
+<div class="text-pages-top">
+    <h2 class="title-white">TOUTES VOS PIÈCES</h2>
+</div>
 
 <div class="my-layout-container">
   <div class="front-content  card-form">
 
-    <h1>TOUTES VOS PIECES</h1>
     <% @rooms.each do |room|%>
       <% if room.stuffs.length.zero? %>
         <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary card-room w-100 m-1 mt-4" do  %>
