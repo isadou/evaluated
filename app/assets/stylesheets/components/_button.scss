@@ -1,10 +1,9 @@
 // BUTTON HOMEPAGE
 .btn-home {
-  width: 299px;
-  height: 76px;
+  height: 15vh;
   left: 0px;
   top: 0px;
-  margin-top: 203px;
+  margin-top: 15vh;
 
   background: rgba(167, 169, 190, 0.5);
   border-radius: 80px;
@@ -74,4 +73,10 @@ font-weight: bold;
 font-size: 30px;
 line-height: 50px;
 text-align: center;
+}
+
+// FORM MOVE
+.form-button {
+  display: flex;
+  justify-content: center;
 }

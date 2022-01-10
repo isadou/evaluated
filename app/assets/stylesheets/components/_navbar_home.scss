@@ -16,8 +16,12 @@
 // PERSONNALISATION EVALUAT3D
 
 .navbar {
-  z-index: 1000;
+  z-index: 500;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
   padding: 1rem 1rem;
+  position: relative;
 }
 
 .navbar-light .navbar-toggler-icon {

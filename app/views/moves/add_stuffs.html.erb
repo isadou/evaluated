@@ -2,13 +2,13 @@
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
 
+<div class="text-pages-top">
+    <h2 class="title-white"><small><%= @room.name.upcase %></small></h2>
+    <h2 class="title-white">AJOUTER VOTRE MOBILIER</h2>
+</div>
 
 <div class="my-layout-container">
   <div class="front-content  card-form">
-
-    <h2> <%= @room.name.upcase %></h2>
-    <h2>AJOUTER VOTRE MOBILIER</h2>
-
 
     <%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
       <% @stuffs.each do |stuff|%>
@@ -17,8 +17,10 @@
           <%= f.input stuff.name.to_sym, input_html: { value: @room.inventories.where(stuff_id: stuff).length, type: 'number', min: 0 }, label: false, class: 'item-stuffs' %>
         </div>
       <%end %>
-        <div class="form-actions">
-          <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1' %>
+        <div class="form-button">
+          <div class="form-actions" style="position: absolute; display: flex; width: 80vw; margin-top: 3vh; justify-content: center;">
+            <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
+          </div>
         </div>
     <% end %>
 

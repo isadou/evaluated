@@ -1,4 +1,4 @@
-
+require 'open-uri'
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
@@ -66,6 +66,8 @@ class MovesController < ApplicationController
 
   def add_rooms
     rooms_list
+    get_distance
+    @move.update(distance: @distance)
   end
 
   def create_rooms
@@ -189,7 +191,7 @@ class MovesController < ApplicationController
       @rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
-      sum
+      sum.ceil
     end
   end
 
@@ -199,7 +201,7 @@ class MovesController < ApplicationController
       move.rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
-      sum
+      sum.ceil
     end
   end
 
@@ -287,4 +289,20 @@ class MovesController < ApplicationController
       sum.ceil
     end
   end
+
+  def get_distance
+    @url = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/#{@move.depart_longitude},#{@move.depart_latitude};#{@move.arrivee_longitude},#{@move.arrivee_latitude}?steps=true&geometries=geojson&language=fr&access_token=#{ENV['MAPBOX_API_KEY']}"
+    @geoloc_serialized = URI.open(@url).read
+    @geoloc = JSON.parse(@geoloc_serialized)
+    @distance = (@geoloc['routes'][0]['distance'] / 1000).floor
+  end
+
+  def prix_perso
+    #location moyen camion + km + prix carton + pizza + biere
+  end
+
+  def prix_pro
+    # prix camion + demenageur + carton + km + marge
+  end
+
 end
