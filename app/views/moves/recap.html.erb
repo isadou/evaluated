@@ -12,9 +12,6 @@
 
 
   <div class="front-content card-form">
-    <h1>VOLUME TOTAL</h1>
-    <h1><%= "#{@volume_total} M3" %></h1>
-    <br><br>
 
     <p>DETAIL DU VOLUME PAR PIECE</p>
     <%@recap.each do |key, value|%>
@@ -24,14 +21,21 @@
 
     <br>
 
-    <%= link_to 'Détails', details_move_path, class: 'btn btn-secondary card-room w-25 mx-1' %>
-          <p class="small">à partir de</p>
-          <span class="h4"><%="#{@prix_perso} € " %></span>
-          <span class="small">SEUL</span>
+    <div class="d-flex justify-content-around">
+    <%= link_to details_move_path, class: 'btn btn-secondary done card-room w-50 mx-1' do %>
+      <span class="small">à partir de</span>
+      <span class="h4"><%="#{@prix_perso} € " %></span>
+      <span class="small">SEUL</span>
+    <% end %>
 
-    <%= link_to 'PROF', find_mover_move_path, class: 'btn btn-warning w-100 mx-1' %>
- <span class="h4"><%="#{@prix_pro} € " %></span>
-    <%= link_to 'back', moves_path  %>
+    <%= link_to find_mover_move_path, class: 'btn btn-secondary card-room w-50 mx-1' do %>
+      <span class="small">prix indicatif</span>
+      <span class="h4"><%="#{@prix_pro} € " %></span>
+      <span class="small">PRO</span>
+    <% end %>
+    </div>
+
+    <%# <%= link_to 'back', moves_path  %>
 
   </div>
 </div>
