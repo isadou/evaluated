@@ -66,7 +66,7 @@ const initMapbox = () => {
             'line-cap': 'round'
           },
           paint: {
-            'line-color': '#3887be',
+            'line-color': '#FF8906',
             'line-width': 5,
             'line-opacity': 0.75
           }
@@ -90,6 +90,7 @@ instructions.innerHTML = `<p><strong>Trip duration: ${time_convert(Math.floor(
       // make an initial directions request that
       // starts and ends at the same location
       getRoute(start);
+      getRoute(end);
 
       // Add starting point to the map
       map.addLayer({
@@ -116,51 +117,30 @@ instructions.innerHTML = `<p><strong>Trip duration: ${time_convert(Math.floor(
           'circle-color': '#3887be'
         }
       });
-      // this is where the code from the next step will go
-      map.on('click', (event) => {
-        const coords = [markers[1].lng, markers[1].lat];
-        const end = {
-          type: 'FeatureCollection',
-          features: [
-            {
-              type: 'Feature',
-              properties: {},
-              geometry: {
-                type: 'Point',
-                coordinates: coords
+
+      map.addLayer({
+        id: 'end',
+        type: 'circle',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                properties: {},
+                geometry: {
+                  type: 'Point',
+                  coordinates: end
+                }
               }
-            }
-          ]
-        };
-        if (map.getLayer('end')) {
-          map.getSource('end').setData(end);
-        } else {
-          map.addLayer({
-            id: 'end',
-            type: 'circle',
-            source: {
-              type: 'geojson',
-              data: {
-                type: 'FeatureCollection',
-                features: [
-                  {
-                    type: 'Feature',
-                    properties: {},
-                    geometry: {
-                      type: 'Point',
-                      coordinates: coords
-                    }
-                  }
-                ]
-              }
-            },
-            paint: {
-              'circle-radius': 10,
-              'circle-color': '#f30'
-            }
-          });
+            ]
+          }
+        },
+        paint: {
+          'circle-radius': 10,
+          'circle-color': '#f30'
         }
-        getRoute(coords);
       });
     });
   }
