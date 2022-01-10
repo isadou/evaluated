@@ -7,30 +7,52 @@
 </div>
 
 <div class="my-layout-container">
-  <div class="front-content card-form">
+  <div class="front-content cards">
+    <div class="cards">
+      <%# Méthode affichage Room.type %>
+      <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
+        <%#= affichage de chaque room type name en label %>
+        <% RoomType::ROOM_TYPES.each do |type| %>
+          <%# <div class=" container-rooms">
+            <%= f.label type, class: 'items-rooms'%>
+            <%# <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
+          <%# </div> %>
+        <div class="card">
+          <div class="card-header">
+          <%= image_tag("#{type.capitalize.gsub(" ","_")}.svg", :class => "profile-img") if File.exist? Rails.root.join('app', 'assets', 'images', "#{type.capitalize.gsub(" ","_")}.svg") %>
+            <%# <img src="img/kitchen.svg" alt="Profile Image" class="profile-img"> %>
+          </div>
+          <div class="card-elements">
+            <div class="card-body">
+              <p class="room-name"><%= f.label type, class: 'items-rooms'%></p>
+            </div>
+            <div class="card-calcul">
+              <div class="card-button-moins">
+                <button type="submit" style="border: 0; background: transparent">
+                  <%= image_tag("-_button.svg", :class => "calcul-icons")%>
+                </button>
+              </div>
 
-    <%# Méthode affichage Room.type %>
-    <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
-
-      <%#= affichage de chaque room type name en label %>
-      <% RoomType::ROOM_TYPES.each do |type| %>
-        <div class=" container-rooms">
-          <%= f.label type, class: 'items-rooms'%>
-          <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
+              <div class="card-number">
+                <p class=""> <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %></p>
+              </div>
+              <div class="card-button-plus">
+                <button type="submit" style="border: 0; background: transparent">
+                  <%# <%= image_tag("+_button.svg", :class => "calcul-icons")%>
+                  <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="form-actions">
+            <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
         </div>
       <% end %>
-
-      <div class="form-button">
-        <div class="form-actions" style="position: absolute; display: flex; width: 80vw; margin-top: 3vh; justify-content: center;">
-          <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
-        </div>
-      </div>
-    <% end %>
-
+    </div>
     <%# A SUPPRIMER DANS UN SECOND TEMPS %>
     <%= link_to 'back', new_move_path %>
-
-
     <%= link_to 'next', rooms_list_move_path %>
   </div>
 </div>

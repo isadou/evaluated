@@ -6,11 +6,15 @@
   margin: 2em;
 }
 
-.items-stuffs, .items-rooms, .items-materiels {
+.items-stuffs, .items-materiels {
   flex-grow: 1;
   width: 50%;
   height: max-content;
 
+  abbr{display:none;}
+}
+
+.items-rooms {
   abbr{display:none;}
 }
 
