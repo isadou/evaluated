@@ -192,7 +192,7 @@ class MovesController < ApplicationController
       move.rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
-      sum
+      sum.ceil
     end
   end
 
@@ -280,4 +280,30 @@ class MovesController < ApplicationController
       sum.ceil
     end
   end
+
+  def km
+    unless @moves.nil?
+      itineraire = []
+      @moves.each do |move|
+        results_a = Geocoder.search(params[:move][:depart])
+        @move.depart_latitude = results_a.first.coordinates[0]
+        @move.depart_longitude = results_a.first.coordinates[1]
+        results_b = Geocoder.search(params[:move][:arrivee])
+        @move.arrivee_latitude = results_b.first.coordinates[0]
+        @move.arrivee_longitude = results_b.first.coordinates[1]
+        itineraire = Geocoder::Calculations.distance_between([@move.depart_latitude,@move.depart_longitude], [@move.arrivee_latitude,@move.arrivee_longitude], units: :km)
+      end
+      itineraire
+    end
+  end
+
+  def prix_perso
+    #location moyen camion + km + prix carton + pizza + biere
+  end
+
+  def prix_pro
+    # prix camion + demenageur + carton + km + marge
+  end
+
+
 end
