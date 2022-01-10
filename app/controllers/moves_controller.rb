@@ -1,4 +1,4 @@
-
+require 'ope'
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
@@ -192,7 +192,7 @@ class MovesController < ApplicationController
       move.rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
-      sum
+      sum.ceil
     end
   end
 
@@ -279,5 +279,8 @@ class MovesController < ApplicationController
       end
       sum.ceil
     end
+  end
+
+  def get_distance
   end
 end
