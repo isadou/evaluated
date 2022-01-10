@@ -1,10 +1,13 @@
 <div class="container-image-centered">
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
-<%= console %>
+
+<div class="text-pages-top">
+    <h2 class="title-white">SÉLECTIONNER VOS PIÈCES</h2>
+</div>
+
 <div class="my-layout-container">
   <div class="front-content  card-form">
-    <h2>SELECTIONNER VOS PIECES</h2>
 
     <%# Méthode affichage Room.type %>
     <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
