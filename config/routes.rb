@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       member do
         get "/add_stuffs", to: "moves#add_stuffs"
         post "/create_stuffs", to: "moves#create_stuffs"
+        get "/room_destroy", to: "moves#room_destroy"
+        post "/room_destroy", to: "moves#room_destroy"
       end
     end
   end

@@ -2,7 +2,7 @@
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
-  before_action :set_room, only: [:add_stuffs, :create_stuffs]
+  before_action :set_room, only: [:add_stuffs, :create_stuffs, :room_destroy]
 
   # method crud
   def index
@@ -88,6 +88,13 @@ class MovesController < ApplicationController
 
   def rooms_list
     @rooms = @move.rooms.order(:name)
+  end
+
+  def room_destroy
+    @room = Room.find(params[:id])
+    @move = @room.move
+    @room.destroy
+    redirect_to rooms_list_move_path(@move)
   end
 
   def add_stuffs
