@@ -82,7 +82,8 @@ for (const step of steps) {
 }
 instructions.innerHTML = `<p><strong>Trip duration: ${time_convert(Math.floor(
   data.duration / 60
-))} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+))} min 🚴 </strong>${Math.floor(
+  data.distance / 1000)} km</p><ol>${tripInstructions}</ol>`;
     }
 
     map.on('load', () => {
