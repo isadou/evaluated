@@ -16,6 +16,8 @@
   <body>
     <% if current_page?('/') %>
         <%= render 'shared/navbar_home_no_arrow' %>
+    <% elsif current_page?(moves_path)%>
+        <%= render 'shared/navbar_demenagements' %>
     <% else %>
         <%= render 'shared/navbar_home' %>
     <% end %>

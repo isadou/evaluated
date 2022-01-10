@@ -37,6 +37,12 @@
   align-self: center;
 }
 
+.background-full {
+  width: 100vh;
+  position: absolute;
+  object-fit: cover;
+}
+
 .container-image-centered{
  display: flex;
  justify-content: center;
@@ -86,6 +92,15 @@ body {
   z-index: 500;
   position: relative;
   margin-top: 2vh;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+
+// TEXT TOP DEMENAGEMENTS
+.text-demenagements-top {
+  z-index: 500;
+  position: relative;
+  margin-top: 17vh;
   margin-bottom: 5vh;
   text-align: center;
 }
