@@ -15,10 +15,11 @@
 
 // PERSONNALISATION EVALUAT3D
 
-.navbar {
+.navbar-home {
   z-index: 500;
-  position: relative;
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1rem;
 }
 
 .navbar-light .navbar-toggler-icon {
