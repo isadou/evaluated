@@ -46,6 +46,9 @@
   z-index: 3;
   position: absolute;
   word-wrap: break-word;
+  &.form-new-moves {
+    margin-top: 18vh;
+  }
 }
 
 // Definition du style du nombre total de carton dans pages detail
@@ -82,12 +85,14 @@ body {
 .text-pages-top {
   z-index: 500;
   position: relative;
-  margin-top: 12vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
   text-align: center;
 }
 
 .title-white {
   color: white;
+  font-weight: bold;
 }
 
 //Media queries
