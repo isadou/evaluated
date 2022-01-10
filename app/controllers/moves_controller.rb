@@ -1,6 +1,6 @@
-require 'pry-byebug'
+
 class MovesController < ApplicationController
-  before_action :set_move, only: [:destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
+  before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
   before_action :set_room, only: [:add_stuffs, :create_stuffs]
 
@@ -11,6 +11,19 @@ class MovesController < ApplicationController
     @moves.each do |move|
       @volumes[move] = strip_trailing_zero(volume_total_index(move))
     end
+  end
+
+  def show
+    @markers = [
+      {
+        lat: @move.depart_latitude,
+        lng: @move.depart_longitude
+      },
+      {
+        lat: @move.arrivee_latitude,
+        lng: @move.arrivee_longitude
+      }
+    ]
   end
 
   def new

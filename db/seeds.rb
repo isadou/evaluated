@@ -19,7 +19,7 @@ user = User.create!(email: "lilia@evaluated.com", first_name: "Lilia", last_name
 p "#{user.email} created"
 
 # pour les moves le champ transport sera déterminé en fonction du volume... l user ne peut pas le saisir
-demenagement = Move.new(depart: "25 chemin des brumes, Fos sur Mer", arrivee: "Paris", house_type: "appartement", acces: 'true', transport: "", user_id: user.id)
+demenagement = Move.new(depart: "5 Rue Charles Gounod, Fos-sur-Mer", arrivee: "Paris", house_type: "appartement", acces: 'true', transport: "", user_id: user.id)
 results = Geocoder.search(demenagement.arrivee)
 demenagement.arrivee_latitude = results.first.coordinates[0]
 demenagement.arrivee_longitude = results.first.coordinates[1]
@@ -29,7 +29,7 @@ p "#{demenagement.user.first_name}'s move created"
 user = User.create!(email: "georgia@evaluated.com", first_name: "Georgia", last_name: "Drai",telephone: "0712345678", password: "123456")
 p "#{user.email} created"
 
-demenagement = Move.new(depart: "9 rue crudere, 13006 Marseille", arrivee: "Nouvelle Calédonie", house_type: "maison", acces: 'false', transport: "", user_id: user.id)
+demenagement = Move.new(depart: "9 rue crudere, 13006 Marseille", arrivee: "14 Rue de Rome, Marseille", house_type: "maison", acces: 'false', transport: "", user_id: user.id)
 results = Geocoder.search(demenagement.arrivee)
 demenagement.arrivee_latitude = results.first.coordinates[0]
 demenagement.arrivee_longitude = results.first.coordinates[1]
