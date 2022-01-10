@@ -8,7 +8,10 @@
     <%= f.input :house_type, collection: Move::LOGEMENTS, as: :select, :include_blank => "Sélectionnez votre type d'habitation", label: false%>
     <%= f.input :acces, as: :boolean, checked_value: true, unchecked_value: false, label:"Accès facile pour un camion ?" %>
   </div>
-  <div class="form-actions" style="position: absolute; display: flex; width: 80vw; margin-top: 3vh; justify-content: center;">
-    <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
+
+  <div class="form-button">
+    <div class="form-actions" style="position: absolute; display: flex; width: 80vw; margin-top: 3vh; justify-content: center;">
+      <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
+    </div>
   </div>
 <% end %>

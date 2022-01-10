@@ -15,8 +15,10 @@
 
 // PERSONNALISATION EVALUAT3D
 
-.navbar {
-  z-index: 1000;
+.navbar-home {
+  z-index: 500;
+  display: flex;
+  justify-content: flex-end;
   padding: 1rem 1rem;
   position: relative;
 }
