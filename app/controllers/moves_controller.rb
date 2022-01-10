@@ -129,6 +129,9 @@ class MovesController < ApplicationController
     end
     @volume_total = strip_trailing_zero(volume_total)
     get_tranport
+    @prix_perso = strip_trailing_zero(prix_perso)
+    @prix_pro = strip_trailing_zero(prix_pro)
+
   end
 
   def details
@@ -257,17 +260,16 @@ class MovesController < ApplicationController
   end
 
   def effectif_total
+    volume_total
     unless @rooms.nil?
-      sum = 0
-      @rooms.each do |room|
+      sum = 0.0
         if volume_total >= 20
-          sum = volume_total / 10
+          sum = (volume_total.to_f / 10).round
         else
           sum = 2
         end
       end
-      sum.floor
-    end
+      sum
   end
 
   def pizza_total
@@ -297,12 +299,48 @@ class MovesController < ApplicationController
     @distance = (@geoloc['routes'][0]['distance'] / 1000).floor
   end
 
+def get_price_transport
+    volume = volume_total.ceil
+    sum = 0
+    case volume
+    when 0..3
+      transport_price = 220
+    when 4..10
+      transport_price = 250
+    when 11..20
+     transport_price = 400
+    when 21..88
+     transport_price = 0
+    end
+    sum =+ transport_price
+  end
+
+
   def prix_perso
-    #location moyen camion + km + prix carton + pizza + biere
+    unless @rooms.nil?
+      sum = 0
+        sum += get_price_transport
+        sum += (total_cartons(@rooms) * 2)
+        sum += (pizza_total * 15)
+        sum += (biere_total * 2)
+      end
+    sum.ceil
   end
 
   def prix_pro
+    unless @rooms.nil?
+    sum = 0
+    sum += (get_distance * 1.70) + (effectif_total * 250)
+      if volume_total < 20
+        sum += 50
+      else
+        sum += 150
+      end
+    sum += (total_cartons(@rooms) * 2)
+    sum = sum * 1.20
     # prix camion + demenageur + carton + km + marge
+    end
+    sum.ceil
   end
 
 end
