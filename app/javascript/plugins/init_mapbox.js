@@ -80,9 +80,9 @@ let tripInstructions = '';
 for (const step of steps) {
   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
 }
-instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+instructions.innerHTML = `<p><strong>Trip duration: ${time_convert(Math.floor(
   data.duration / 60
-)} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+))} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
     }
 
     map.on('load', () => {
@@ -164,5 +164,11 @@ instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
     });
   }
 };
+
+function time_convert(num) {
+  var hours = Math.floor(num / 60);
+  var minutes = num % 60;
+  return hours + "h" + minutes;
+}
 
 export { initMapbox };
