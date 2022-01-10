@@ -1,4 +1,4 @@
-
+require 'open-uri'
 class MovesController < ApplicationController
   before_action :set_move, only: [:show, :destroy, :update, :edit, :rooms_list, :add_stuffs, :recap, :details, :create_rooms, :add_rooms]
   before_action :set_user, only: [:new, :create]
@@ -66,6 +66,8 @@ class MovesController < ApplicationController
 
   def add_rooms
     rooms_list
+    get_distance
+    @move.update(distance: @distance)
   end
 
   def create_rooms
@@ -281,20 +283,11 @@ class MovesController < ApplicationController
     end
   end
 
-  def km
-    unless @moves.nil?
-      itineraire = []
-      @moves.each do |move|
-        results_a = Geocoder.search(params[:move][:depart])
-        @move.depart_latitude = results_a.first.coordinates[0]
-        @move.depart_longitude = results_a.first.coordinates[1]
-        results_b = Geocoder.search(params[:move][:arrivee])
-        @move.arrivee_latitude = results_b.first.coordinates[0]
-        @move.arrivee_longitude = results_b.first.coordinates[1]
-        itineraire = Geocoder::Calculations.distance_between([@move.depart_latitude,@move.depart_longitude], [@move.arrivee_latitude,@move.arrivee_longitude], units: :km)
-      end
-      itineraire
-    end
+  def get_distance
+    @url = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/#{@move.depart_longitude},#{@move.depart_latitude};#{@move.arrivee_longitude},#{@move.arrivee_latitude}?steps=true&geometries=geojson&language=fr&access_token=#{ENV['MAPBOX_API_KEY']}"
+    @geoloc_serialized = URI.open(@url).read
+    @geoloc = JSON.parse(@geoloc_serialized)
+    @distance = (@geoloc['routes'][0]['distance'] / 1000).floor
   end
 
   def prix_perso
@@ -304,6 +297,5 @@ class MovesController < ApplicationController
   def prix_pro
     # prix camion + demenageur + carton + km + marge
   end
-
 
 end

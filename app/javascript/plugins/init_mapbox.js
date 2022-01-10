@@ -74,6 +74,7 @@ const initMapbox = () => {
       }
       // add turn instructions here at the end
       const instructions = document.getElementById('instructions');
+      const distance = Math.floor(data.distance / 1000)
 const steps = data.legs[0].steps;
 
 let tripInstructions = '';
