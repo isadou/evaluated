@@ -3,13 +3,19 @@
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
 
+<div class="text-pages-top">
+    <h2 class="title-white"><small>VOLUME TOTAL</small></h2>
+    <h1 class="title-white text-volume-size"><%= "#{@volume_total}M3" %></h1>
+</div>
 
 <div class="my-layout-container">
-<%= @move.distance %>
-  <div class="front-content  card-form">
+
+
+  <div class="front-content card-form">
     <h1>VOLUME TOTAL</h1>
     <h1><%= "#{@volume_total} M3" %></h1>
     <br><br>
+
     <p>DETAIL DU VOLUME PAR PIECE</p>
     <%@recap.each do |key, value|%>
       <%= "#{key.upcase} -> #{value} m3"%>

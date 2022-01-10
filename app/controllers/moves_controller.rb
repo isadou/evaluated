@@ -184,7 +184,7 @@ class MovesController < ApplicationController
       @rooms.each do |room|
         sum += volume_stuffs(set_stuffs(room))
       end
-      sum
+      sum.ceil
     end
   end
 
