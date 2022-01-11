@@ -11,27 +11,28 @@
 <div class="my-layout-container">
 
 
-  <div class="front-content card-form">
+  <div class="front-content card-recap">
 
-    <p>DETAIL DU VOLUME PAR PIECE</p>
-    <%@recap.each do |key, value|%>
-      <%= "#{key.upcase} -> #{value} m3"%>
+      <p>DETAIL DU VOLUME PAR PIECE</p>
+      <%@recap.each do |key, value|%>
+        <div class="btn btn-primary card-volume w-100 x-1">
+          <span class="small"><%= "#{key.upcase} -> #{value} m3"%></span>
+        </div>
+      <% end %>
+
       <br>
-    <% end %>
-
-    <br>
 
     <div class="d-flex justify-content-around">
-    <%= link_to details_move_path, class: 'btn btn-secondary done card-room w-50 mx-1' do %>
-      <span class="small">à partir de</span>
-      <span class="h4"><%="#{@prix_perso} € " %></span>
-      <span class="small">SEUL</span>
+    <%= link_to details_move_path, class: 'btn btn-secondary done card-room w-50 x-1' do %>
+      <span class="small">à partir de</span><br>
+      <span class="h4"><%="#{@prix_perso} € " %></span><br>
+      <span class="strong">SEUL</span>
     <% end %>
 
-    <%= link_to find_mover_move_path, class: 'btn btn-secondary card-room w-50 mx-1' do %>
-      <span class="small">prix indicatif</span>
-      <span class="h4"><%="#{@prix_pro} € " %></span>
-      <span class="small">PRO</span>
+    <%= link_to find_mover_move_path, class: 'btn btn-secondary pro card-room w-50 mx-1' do %>
+      <span class="small">prix indicatif</span><br>
+      <span class="h4"><%="#{@prix_pro} € " %></span><br>
+      <span class="strong">PRO</span>
     <% end %>
     </div>
 

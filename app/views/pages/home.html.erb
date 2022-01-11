@@ -9,10 +9,7 @@
     <% if Move.where(user_id: current_user).count > 0 %>
       <%= link_to "JE DÉMÉNAGE !", moves_path, class: "btn btn-home" %>
     <% else %>
-      <div class="container d-flex-column justify-content-center">
       <%= link_to "JE DÉMÉNAGE !", new_move_path, class: "btn btn-home" %>
-      <%= link_to "SIGN IN", new_user_session_path, class: "sign_in_homepage" %>
-      </div>
     <% end %>
   </div>
 
