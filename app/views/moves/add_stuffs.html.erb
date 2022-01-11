@@ -10,43 +10,48 @@
 <div class="my-layout-container">
   <div class="front-content cards">
     <div class="cards">
-      <%# Méthode affichage Stuffs %>
       <%= simple_form_for :stuffscreation, method: :post, url: create_stuffs_move_room_path do |f| %>
-        <%#= affichage de chaque room type name en label %>
         <% @stuffs.each do |stuff|%>
-        <div class="card">
-          <div class="card-header">
-            <%= image_tag(image_path("icon/#{stuff.name.capitalize.gsub(" ","_")}.png"), :class => "profile-img stuff-img") if File.exist? Rails.root.join('app', 'assets', 'images', 'icon', "#{stuff.name.capitalize.gsub(" ","_")}.png") %>
-          </div>
-          <div class="card-elements">
-            <div class="card-body">
-              <p class="room-name"><%= f.label stuff.name, class: 'items-stuffs' %></p>
+          <div class="card">
+
+            <div class="card-header">
+              <%= image_tag(image_path("icon/#{stuff.name.capitalize.gsub(" ","_")}.png"), :class => "profile-img stuff-img") if File.exist? Rails.root.join('app', 'assets', 'images', 'icon', "#{stuff.name.capitalize.gsub(" ","_")}.png") %>
             </div>
-            <div class="card-calcul">
-              <div class="card-button-moins">
-                <button type="submit" style="border: 0; background: transparent" class="moins-stuffs">
-                  <%= image_tag("-_button.svg", :class => "calcul-icons")%>
-                </button>
+
+            <div class="card-elements">
+
+              <div class="card-body">
+                <p class="room-name"><%= f.label stuff.name, class: 'items-stuffs' %></p>
               </div>
 
-              <div class="card-number">
-                <%= f.input stuff.name.to_sym, input_html: { value: @room.inventories.where(stuff_id: stuff).length, type: 'number', min: 0 }, label: false, class: 'item-stuffs' %>
-              </div>
-              <div class="card-button-plus">
-                <button type="submit" style="border: 0; background: transparent" class="plus">
-                  <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
-                </button>
+              <div class="card-calcul">
+
+                <div class="card-button-moins">
+                  <button type="submit" style="border: 0; background: transparent" class="moins-stuffs">
+                    <%= image_tag("-_button.svg", :class => "calcul-icons")%>
+                  </button>
+                </div>
+
+                <div class="card-number">
+                  <%= f.input stuff.name.to_sym, input_html: { value: @room.inventories.where(stuff_id: stuff).length, type: 'number', min: 0 }, label: false, class: 'item-stuffs' %>
+                </div>
+
+                <div class="card-button-plus">
+                  <button type="submit" style="border: 0; background: transparent" class="plus">
+                    <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
+                  </button>
+                </div>
+
               </div>
 
             </div>
+
           </div>
-        </div>
         <% end %>
+        <%= f.button :submit, 'SUIVANT', class: 'btn-submit-cards btn-suivant w-100 mx-1'%>
+      <% end %>
 
     </div>
-        <div class="form-actions .submit-card">
-            <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
-        </div>
-      <% end %>
+
   </div>
 </div>

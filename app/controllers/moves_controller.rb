@@ -145,9 +145,8 @@ class MovesController < ApplicationController
     @pizza_total = strip_trailing_zero(pizza_total)
     @biere_total = strip_trailing_zero(biere_total)
     set_materiels(@cartons)
-    @materiels["Transport"] = @move.transport
     @rooms.each do |room|
-    @hash_cartons_by_room[room] = carton_room(room)
+      @hash_cartons_by_room[room] = carton_room(room)
     end
   end
 
@@ -270,7 +269,7 @@ class MovesController < ApplicationController
         else
           sum = 2
         end
-      end
+    end
       sum
   end
 
