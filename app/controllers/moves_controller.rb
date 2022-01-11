@@ -231,11 +231,10 @@ class MovesController < ApplicationController
 
   def set_materiels(cartons)
     @materiels = {
-      "Dolly" => 1,
-      "Charriot" => 1,
+      "Diable" => 1,
       "Sangle" => 4,
       "Rouleaux de bull pack" => 1,
-      "Boite à outil" => 1,
+      "Outils démontage meubles" => 1,
       "Rouleaux de scotch" => (cartons / 30.to_f).ceil
     }
   end
