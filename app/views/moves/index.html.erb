@@ -1,10 +1,11 @@
 <div class="container-image-centered">
-  <%= image_tag("Background_full.svg", :class => "background-full")%>
-
-  <div class="text-demenagements-top">
-      <h2 class="title-white">TOUTES VOS PIÈCES</h2>
-  </div>
+  <%= image_tag("Background_full.svg", :class => "full-background")%>
 </div>
+
+<div class="text-demenagements-top">
+    <h2 class="title-white">VOS PROJETS</h2>
+</div>
+
 
 <div class="my-layout-container">
   <div class="front-content text-center">
@@ -29,7 +30,5 @@
           <% end %>
           <br>
           <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-gradient" %>
-    </div>
   </div>
-
 </div>
