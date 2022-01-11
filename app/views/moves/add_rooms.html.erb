@@ -28,13 +28,13 @@
             </div>
             <div class="card-calcul">
               <div class="card-button-moins">
-                <button type="submit" style="border: 0; background: transparent">
-                  <%= image_tag("-_button.svg", :class => "calcul-icons minus")%>
+                <button type="submit" style="border: 0; background: transparent" class="moins-rooms">
+                  <%= image_tag("-_button.svg", :class => "calcul-icons")%>
                 </button>
               </div>
 
               <div class="card-number">
-                <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
+                <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms value-room'  %>
               </div>
               <div class="card-button-plus">
                 <button type="submit" style="border: 0; background: transparent" class="plus">
