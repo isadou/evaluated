@@ -52,12 +52,8 @@
             <span class="items-materiels py-2"><%= key %></span>
             <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
         </div>
-        <%#= "#{value} #{key.downcase}"%>
-        <%# end %>
-      <% end  %>
-      <%#= "et un #{@materiels["Transport"].downcase}"%>
+      <% end %>
       <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
-      <%= link_to 'back', recap_move_path  %>
-   </div>
+    </div>
   </div>
 </div>
