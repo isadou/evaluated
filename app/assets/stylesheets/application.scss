@@ -150,6 +150,49 @@ body {
 }
 
 
+// PAGE FIND MOVER
+.front {
+  z-index: 3;
+  text-align: center;
+
+}
+
+.find-mover h1, .find-mover h2, .find-mover h3,.find-mover h4 {
+  color: white;
+  font-weight: 400;
+  font-family: "Baloo Chettan 2", cursive;
+  font-style: normal;
+
+}
+
+.find-mover {
+
+  h1 {
+  font-size: 58px;
+  line-height: 30px;
+  padding-top: 3rem;
+  }
+
+  h2, h3 {
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  h3 {
+    padding-top: 1rem;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+}
+
+.logo-find-mover {
+  padding-top: 4rem;
+}
+
 
 //Media queries
 
