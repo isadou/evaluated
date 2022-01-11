@@ -15,7 +15,7 @@
         <%#= affichage de chaque room type name en label %>
         <% @stuffs.each do |stuff|%>
         <div class="card">
-          <div class="card-header">
+          <div class="card-header-stuff">
             <%= image_tag(image_path("icon/#{stuff.name.capitalize.gsub(" ","_")}.png"), :class => "profile-img stuff-img") if File.exist? Rails.root.join('app', 'assets', 'images', 'icon', "#{stuff.name.capitalize.gsub(" ","_")}.png") %>
           </div>
           <div class="card-elements">
@@ -45,10 +45,8 @@
 
     </div>
         <div class="form-actions .submit-card">
-            <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
+            <%= f.button :submit, 'SUIVANT', class: 'btn-suivant w-100 mx-1', style: 'position: absolute; display: flex; width: 75vw; margin-top: 3vh; justify-content: center;'%>
         </div>
       <% end %>
-    <%# A SUPPRIMER DANS UN SECOND TEMPS %>
-    <%= link_to 'back', rooms_list_move_path(@room.move)%>
   </div>
 </div>
