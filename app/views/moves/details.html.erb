@@ -7,8 +7,8 @@
 </div>
 
 <div class="my-layout-container">
-  <div class="front-content card-form">
-    <div class="horizontal-scroll">
+  <div class="front-content">
+    <div class="horizontal-scroll d-flex justify-content-center">
       <%@hash_cartons_by_room.each do |key, value|%>
         <div class="btn btn-secondary done horizontal-scroll__item">
           <%= key.name %>
@@ -20,42 +20,41 @@
 
   <br>
 
-  <p>NOMBRE DE CARTONS TOTAL</p>
+  <h3>NOMBRE DE CARTONS TOTAL</h3>
     <div class= "container-details">
       <p class="style-carton"><%= @cartons %></p>
       <%= image_tag("icon/Carton.png", class: "carton-img")%>
     </div>
 
-  <p>NOMBRE DE VOLONTAIRES</p>
+  <h3>NOMBRE DE VOLONTAIRES</h3>
     <div class= "container-details">
       <p class="style-effectif"><%= @effectif_total %></p>
       <%= image_tag("icon/demenageur.png", class: "effectif-img")%>
     </div>
 
-    <p>NOMBRE DE PIZZAS</p>
+    <h3>NOMBRE DE PIZZAS</h3>
     <div class= "container-details">
       <p class="style-pizza"><%= @pizza_total %></p>
       <%= image_tag("icon/Pizza.png", class: "pizza-img")%>
     </div>
 
-    <p>NOMBRE DE BIERES</p>
+    <h3>NOMBRE DE BIERES</h3>
     <div class= "container-details">
       <p class="style-biere"><%= @biere_total %></p>
       <%= image_tag("icon/Biere.png", class: "biere-img")%>
     </div>
 
-  <p> MATERIELS A PREVOIR </p>
+  <h3> MATERIELS A PREVOIR </h3>
     <%@materiels.each do |key, value|%>
       <%# <%unless key == "Transport" %>
       <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
       <div class="container-materiels">
-        <span class="items-materiels py-2"><%= key %></span>
-        <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
+        <div class="items-materiels py-2 label-materiels"><span><%= key %></span></div>
+        <div><span class="items-materiels py-2 qty-materiels"><%= value %></span></div>
       </div>
       <%#= "#{value} #{key.downcase}"%>
       <%# end %>
     <% end  %>
-    <%= @move.transport %>
     <%#= "et un #{@materiels["Transport"].downcase}"%>
     <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
 
