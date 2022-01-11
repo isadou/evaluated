@@ -1,7 +1,7 @@
 const initPlusMinusButtons = () => {
 const buttonPlus = document.querySelectorAll('.plus');
 const buttonMoinsRooms = document.querySelectorAll('.moins-rooms');
-const buttonMoinsStuffs = document.querySelectorAll('.moins-stuff')
+const buttonMoinsStuffs = document.querySelectorAll('.moins-stuffs')
 let i = 0;
 
   buttonPlus.forEach((btn) => {
