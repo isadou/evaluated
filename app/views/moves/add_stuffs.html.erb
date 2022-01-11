@@ -14,7 +14,7 @@
         <% @stuffs.each do |stuff|%>
           <div class="card">
 
-            <div class="card-header">
+            <div class="card-header-stuff">
               <%= image_tag(image_path("icon/#{stuff.name.capitalize.gsub(" ","_")}.png"), :class => "profile-img stuff-img") if File.exist? Rails.root.join('app', 'assets', 'images', 'icon', "#{stuff.name.capitalize.gsub(" ","_")}.png") %>
             </div>
 
@@ -52,6 +52,5 @@
       <% end %>
 
     </div>
-
   </div>
 </div>

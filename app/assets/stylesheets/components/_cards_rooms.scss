@@ -36,6 +36,15 @@ flex-grow: 1;
     background-color: transparent;
 }
 
+.card-header-stuff {
+    height: 15vh;
+    padding: 4vh;
+    border-radius: 1000px;
+    border-bottom: none;
+    background-color: transparent;
+
+}
+
 .card .card-header .profile-img {
     height: 18vh;
 
@@ -76,14 +85,13 @@ flex-grow: 1;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  // align-items: center;
   padding: 5%;
 }
 
 .card .card-calcul .form-control {
   text-align: center;
   font-size: 1.5rem;
-
 }
 
 .card .card-calcul .calcul-icons {
