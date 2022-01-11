@@ -16,37 +16,53 @@
 @import "pages/index";
 @import "components/button";
 
-// Container application
+
+body {
+  overflow-x: hidden;
+}
+
+// CONTAINER APPLICATION
+
 .my-layout-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1366px;
+}
+
+// BACKGROUND IMAGE ROND TOP
+.background-top {
+    align-self: center;
+    width: 120%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 60%;
+    z-index: 0;
+    position: absolute;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    align-self: center;
+  }
+
+.container-image-centered {
   display: flex;
   justify-content: center;
 }
 
-// Background image
-.background-top {
-  align-self: center;
-  /* overflow: hidden !important; */
-  width: 120%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  height: 60%;
-  z-index: 0;
-  position: absolute;
-  border-bottom-left-radius: 100%;
-  border-bottom-right-radius: 100%;
-  align-self: center;
+// BACKGROUND IMAGE COVER
+.full-background  {
+    object-fit: cover;
+    width: 100vw;
+    // height: 100vh;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.background-full {
-  width: 100vh;
-  position: absolute;
-  object-fit: cover;
-}
-
-.container-image-centered{
- display: flex;
- justify-content: center;
-}
 
 .front-content {
   z-index: 3;
@@ -76,16 +92,6 @@
   background-image: url(/assets/Background_full.svg);
 }
 
-// Responsif
-.my-layout-container {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1366px;
-}
-
-body {
-  overflow-x: hidden;
-}
 
 // TEXT TOP PAGES
 .text-pages-top {
@@ -100,7 +106,7 @@ body {
 .text-demenagements-top {
   z-index: 500;
   position: relative;
-  margin-top: 17vh;
+  margin-top: 3vh;
   margin-bottom: 5vh;
   text-align: center;
 }
@@ -112,8 +118,32 @@ body {
 
 .text-volume-size {
   font-size: 60px;
-
 }
+
+// FORM LOG IN
+
+.form-control {
+   &.optional {
+     background-color: white;
+     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+     border-radius: 15px;
+     padding: 30px;
+     margin: 0px auto;
+   }
+}
+
+.my-label-form {
+  color: white;
+  font-family: "Baloo Chettan 2", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
+}
+
+//   .label {
+//     color:white;
+
+// }
 
 //Media queries
 
