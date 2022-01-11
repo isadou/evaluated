@@ -310,7 +310,7 @@ def get_price_transport
     when 11..20
      transport_price = 400
     when 21..88
-     transport_price = 0
+     transport_price = 600
     end
     sum =+ transport_price
   end
@@ -338,7 +338,6 @@ def get_price_transport
       end
     sum += (total_cartons(@rooms) * 2)
     sum = sum * 1.20
-    # prix camion + demenageur + carton + km + marge
     end
     sum.ceil
   end
