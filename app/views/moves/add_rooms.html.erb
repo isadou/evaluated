@@ -29,16 +29,15 @@
             <div class="card-calcul">
               <div class="card-button-moins">
                 <button type="submit" style="border: 0; background: transparent">
-                  <%= image_tag("-_button.svg", :class => "calcul-icons")%>
+                  <%= image_tag("-_button.svg", :class => "calcul-icons minus")%>
                 </button>
               </div>
 
               <div class="card-number">
-                <p class=""> <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %></p>
+                <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
               </div>
               <div class="card-button-plus">
-                <button type="submit" style="border: 0; background: transparent">
-                  <%# <%= image_tag("+_button.svg", :class => "calcul-icons")%>
+                <button type="submit" style="border: 0; background: transparent" class="plus">
                   <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
                 </button>
               </div>
@@ -46,11 +45,11 @@
           </div>
         </div>
         <% end %>
-        <div class="form-actions">
+    </div>
+        <div class="form-actions .submit-card">
             <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
         </div>
       <% end %>
-    </div>
     <%# A SUPPRIMER DANS UN SECOND TEMPS %>
     <%= link_to 'back', new_move_path %>
     <%= link_to 'next', rooms_list_move_path %>
