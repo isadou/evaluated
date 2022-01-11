@@ -25,10 +25,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initPlusMinusButtons } from '../plugins/init_plus_minus_buttons.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
   initMapbox();
+  initPlusMinusButtons();
 });
