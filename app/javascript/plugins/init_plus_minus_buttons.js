@@ -3,9 +3,9 @@ const buttonPlus = document.querySelector('.plus');
 
   buttonPlus.addEventListener('click', (e) => {
     e.preventDefault();
-    let divPlus = e.target.parentElement.parentElement
-    let divInput = divPlus.previousElementSibling.firstElementChild
-    console.log(divPlus.previousElementSibling.firstElementChild);
+    let divPlus = e.target.parentElement.parentElement;
+    let input = divPlus.previousElementSibling.firstElementChild.firstElementChild;
+    input.value = parseInt(input.value, 10) + 1;
   });
 }
 
