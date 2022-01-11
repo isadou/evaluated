@@ -14,6 +14,8 @@ class MovesController < ApplicationController
   end
 
   def show
+    recap
+    details
     @markers = [
       {
         lat: @move.depart_latitude,
@@ -133,7 +135,6 @@ class MovesController < ApplicationController
     get_tranport
     @prix_perso = strip_trailing_zero(prix_perso)
     @prix_pro = strip_trailing_zero(prix_pro)
-
   end
 
   def details
@@ -146,7 +147,7 @@ class MovesController < ApplicationController
     set_materiels(@cartons)
     @materiels["Transport"] = @move.transport
     @rooms.each do |room|
-      @hash_cartons_by_room[room] = carton_room(room)
+    @hash_cartons_by_room[room] = carton_room(room)
     end
   end
 
