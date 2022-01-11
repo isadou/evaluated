@@ -44,20 +44,20 @@
       <%= image_tag("icon/Biere.png", class: "biere-img")%>
     </div>
 
-    <p> MATERIELS A PREVOIR </p>
-      <%@materiels.each do |key, value|%>
-        <div class="btn btn-primary card-volume w-100 x-1">
-            <%# <%unless key == "Transport" %>
-            <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
-            <span class="items-materiels py-2"><%= key %></span>
-            <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
-        </div>
-        <%#= "#{value} #{key.downcase}"%>
-        <%# end %>
-      <% end  %>
-      <%#= "et un #{@materiels["Transport"].downcase}"%>
-      <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
-      <%= link_to 'back', recap_move_path  %>
-   </div>
+  <p> MATERIELS A PREVOIR </p>
+    <%@materiels.each do |key, value|%>
+      <%# <%unless key == "Transport" %>
+      <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
+      <div class="container-materiels">
+        <span class="items-materiels py-2"><%= key %></span>
+        <span class="items-materiels py-2 qty-materiels text-center"><%= value %></span>
+      </div>
+      <%#= "#{value} #{key.downcase}"%>
+      <%# end %>
+    <% end  %>
+    <%= @move.transport %>
+    <%#= "et un #{@materiels["Transport"].downcase}"%>
+    <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
+    <%= link_to 'back', recap_move_path  %>
   </div>
 </div>
