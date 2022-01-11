@@ -7,33 +7,36 @@
 </div>
 
 <div class="my-layout-container">
-  <div class="front-content  card-form">
+  <div class="front-content-rooms">
 
     <% @rooms.each do |room|%>
-      <% if room.stuffs.length.zero? %>
-        <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary card-room w-75 m-1 mt-4" do  %>
-        <span class="h4"><%= room.name.upcase %> </span>
-          <br>
-          <span class="small">Remplir</span>
-          <%= link_to room_destroy_move_room_path(@move, room), method: :room_destroy, data: { confirm: 'Are you sure?' } do %>
-            <i class="fa fa-trash" card-room w-10 m-1 mt-4 ></i>
+        <% if room.stuffs.length.zero? %>
+      <div class="btn btn-secondary card-room w-75 m-1 mt-4">
+          <%= link_to add_stuffs_move_room_path(@move, room), :class => "card-room-title" do  %>
+            <span class="h4"><%= room.name.upcase %> </span>
+
+            <div class="card-room-item-flex" style="display: flex;justify-content: space-around;margin-top: 2vh;align-items: center;">
+              <span class="small card-room-description">Remplir</span>
+              <%= link_to room_destroy_move_room_path(@move, room), method: :room_destroy, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash card-room-trash" ></i>
+              <% end %>
+            </div>
+          <% end %>
+
+        <% else %>
+        <div class="btn btn-secondary card-room done w-75 m-1 mt-4">
+          <%= link_to add_stuffs_move_room_path(@move, room), :class => "card-room-title" do  %>
+            <span class="h4" style="color: white;"><%= room.name.upcase %> </span>
+            <div class="card-room-item-flex" style="display: flex;justify-content: space-around;margin-top: 2vh;align-items: center;">
+              <span class="small card-room-description" style="color: white;"><%= "#{pluralize(room.stuffs.length, "meuble")}" %></span>
+              <%= link_to room_destroy_move_room_path(@move, room), method: :room_destroy, data: { confirm: 'Are you sure?' } do %>
+                <i class="fa fa-trash card-room-trash" style="color: white;"></i>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
-      <% else %>
-          <%= link_to add_stuffs_move_room_path(@move, room), :class => "btn btn-secondary card-room done w-75 m-1 mt-4" do  %>
-          <span class="h4"><%= room.name.upcase %> </span>
-          <br>
-          <span class="small"><%= "#{pluralize(room.stuffs.length, "meuble")}" %></span>
-          <%= link_to room_destroy_move_room_path(@move, room), method: :room_destroy, data: { confirm: 'Are you sure?' } do %>
-            <i class="fa fa-trash" card-room w-10 m-1 mt-4 ></i>
-          <% end %>
-        <% end %>
-      <% end %>
-    <br>
+      </div>
     <% end  %>
-
-    <br>
-
 
     <div class="form-button ">
       <%= link_to 'VALIDER', recap_move_path, class: 'btn btn-suivant mx-1', style: 'position: absolute; display: flex; width: 75vw; margin-top: 3vh; justify-content: center;' %>

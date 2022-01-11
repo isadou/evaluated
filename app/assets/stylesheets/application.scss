@@ -73,6 +73,15 @@ body {
   }
 }
 
+.front-content-rooms {
+  z-index: 3;
+  position: absolute;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 // Definition du style du nombre total de carton dans pages detail
 .style-carton, .style-effectif, .style-pizza, .style-biere {
   font-family: "Baloo Chettan 2", cursive;
@@ -140,10 +149,7 @@ body {
   font-size: 3vh;
 }
 
-//   .label {
-//     color:white;
 
-// }
 
 //Media queries
 
