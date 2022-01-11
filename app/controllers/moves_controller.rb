@@ -344,5 +344,4 @@ def get_price_transport
     end
     sum.ceil
   end
-
 end
