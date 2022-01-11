@@ -23,7 +23,6 @@ let i = 0;
       if (i > 0) {
         input.value = parseInt(input.value, 10) - 1;
         i -= 1;
-        console.log(i);
       }
     });
   });
@@ -33,10 +32,8 @@ let i = 0;
       e.preventDefault();
       let divMoins = e.target.parentElement.parentElement;
       let input = divMoins.nextElementSibling.firstElementChild.firstElementChild;
-      if (i > 0) {
+      if (input.value > 0) {
         input.value = parseInt(input.value, 10) - 1;
-        i -= 1;
-        console.log(i);
       }
     });
   });

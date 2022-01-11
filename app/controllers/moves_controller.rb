@@ -270,7 +270,7 @@ class MovesController < ApplicationController
         else
           sum = 2
         end
-      end
+    end
       sum
   end
 
