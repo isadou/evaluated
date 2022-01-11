@@ -66,8 +66,10 @@ class MovesController < ApplicationController
 
   def add_rooms
     rooms_list
-    get_distance
-    @move.update(distance: @distance)
+    if @move.distance.nil?
+      get_distance
+      @move.update(distance: @distance)
+    end
   end
 
   def create_rooms
