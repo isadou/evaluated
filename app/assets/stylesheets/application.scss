@@ -240,6 +240,27 @@ body {
   padding-top: 4rem;
 }
 
+// Page show move
+.hidden {
+  display: none;
+}
+
+.container-show {
+  width: 90%;
+  margin: 0 auto;
+  ul {
+    list-style: none;
+  }
+}
+
+.show-title {
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.details-show {
+  padding-top: 4rem;
+}
 
 //Media queries
 

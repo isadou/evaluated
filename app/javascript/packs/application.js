@@ -26,6 +26,8 @@ import "bootstrap";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initPlusMinusButtons } from '../plugins/init_plus_minus_buttons.js';
+import { initToggles } from '../plugins/init_toggles.js';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -33,4 +35,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMapbox();
   initPlusMinusButtons();
+  initToggles();
 });
