@@ -33,16 +33,17 @@ body {
 
 // BACKGROUND IMAGE ROND TOP
 .background-top {
-    align-self: center;
-    width: 120%;
-    -o-object-fit: cover;
+   width: 100vw;
     object-fit: cover;
-    height: 60%;
     z-index: 0;
     position: absolute;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
     align-self: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 
 .container-image-centered {
@@ -149,6 +150,49 @@ body {
   font-size: 3vh;
 }
 
+
+// PAGE FIND MOVER
+.front {
+  z-index: 3;
+  text-align: center;
+
+}
+
+.find-mover h1, .find-mover h2, .find-mover h3,.find-mover h4 {
+  color: white;
+  font-weight: 400;
+  font-family: "Baloo Chettan 2", cursive;
+  font-style: normal;
+
+}
+
+.find-mover {
+
+  h1 {
+  font-size: 58px;
+  line-height: 30px;
+  padding-top: 3rem;
+  }
+
+  h2, h3 {
+    font-size: 35px;
+    line-height: 50px;
+  }
+
+  h3 {
+    padding-top: 1rem;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+}
+
+.logo-find-mover {
+  padding-top: 4rem;
+}
 
 
 //Media queries
