@@ -56,11 +56,19 @@ flex-grow: 1;
     transform: translate(0%, -5%);
 }
 
-
 .card .card-body {
-  margin-top: 30%;
+  margin-top: 45%;
   left: 0px;
   right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  height: 12vh;
+  padding: 1.25rem
 }
 
 .card .card-body .room-name {
@@ -74,6 +82,7 @@ flex-grow: 1;
   text-align: center;
   color: #63320F;
 }
+
 
 .card .card-elements {
   width: 100%;

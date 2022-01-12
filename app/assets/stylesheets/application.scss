@@ -33,16 +33,17 @@ body {
 
 // BACKGROUND IMAGE ROND TOP
 .background-top {
-    align-self: center;
-    width: 120%;
-    -o-object-fit: cover;
+   width: 100vw;
     object-fit: cover;
-    height: 60%;
     z-index: 0;
     position: absolute;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
     align-self: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 
 .container-image-centered {
