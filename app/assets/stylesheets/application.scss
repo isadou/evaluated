@@ -26,7 +26,7 @@ body {
 .my-layout-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  // width: 100%;
   margin: 0 auto;
   max-width: 1366px;
 }
@@ -80,6 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 // Definition du style du nombre total de carton dans pages detail
@@ -139,6 +140,11 @@ body {
      padding: 30px;
      margin: 0px auto;
    }
+   &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #63320F;
+  opacity: 1; /* Firefox */
+  width: 45vw;
+  }
 }
 
 .my-label-form {
@@ -147,6 +153,13 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 3vh;
+}
+
+// VIEW NEW MOVE FRONT
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
 }
 
 // VIEW MOVES FRONT

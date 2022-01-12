@@ -49,7 +49,7 @@
   font-family: 'Baloo Chettan 2', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 4vh;
+  font-size: 3.90vh;
   text-align: center;
   color: #FFFFFF;
   margin-top: 2vh;
@@ -83,12 +83,14 @@
   line-height: 50px;
   text-align: center;
   max-width: 70%;
+  max-height: 60%;
 }
 
 // FORM MOVE
 .form-button {
   display: flex;
   justify-content: center;
+  margin: 4vw;
 }
 
 .pro {
