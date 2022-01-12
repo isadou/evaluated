@@ -331,14 +331,14 @@ def get_price_transport
   def prix_pro
     unless @rooms.nil?
     sum = 0
-    sum += (get_distance * 1.70) + (effectif_total * 250)
+    sum += (@move.distance * 1.50) + (effectif_total * 180)
       if volume_total < 20
         sum += 50
       else
         sum += 150
       end
     sum += (total_cartons(@rooms) * 2)
-    sum = sum * 1.20
+    sum = sum * 1.15
     end
     sum.ceil
   end

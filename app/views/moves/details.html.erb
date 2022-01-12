@@ -20,10 +20,22 @@
 
   <br>
 
-  <p>NOMBRE DE CARTONS TOTAL</p>
-    <div class= "container-details">
+  <div class= "container-details d-flex justify-content-between">
+    <div class="btn btn-outline-warning btn-rounded-md">
       <p class="style-carton"><%= @cartons %></p>
       <%= image_tag("icon/Carton.png", class: "carton-img")%>
+    </div>
+    <div class="square">
+      <p class="style-effectif"><%= @effectif_total %></p>
+      <%= image_tag("icon/demenageur.png", class: "effectif-img")%>
+    </div>
+
+
+  </div>
+
+  <p>NOMBRE DE CARTONS TOTAL</p>
+    <div class= "container-details">
+
     </div>
 
   <p>NOMBRE DE VOLONTAIRES</p>
@@ -44,6 +56,13 @@
       <%= image_tag("icon/Biere.png", class: "biere-img")%>
     </div>
 
+    <p>VEHICULE NECESSAIRE</p>
+    <div class= "container-details">
+      <p class="style-biere"><%= @move.transport %></p>
+      <%= image_tag("icon/Camion.png", class: "biere-img")%>
+    </div>
+
+
   <p> MATERIELS A PREVOIR </p>
     <%@materiels.each do |key, value|%>
       <%# <%unless key == "Transport" %>
@@ -55,7 +74,6 @@
       <%#= "#{value} #{key.downcase}"%>
       <%# end %>
     <% end  %>
-    <%= @move.transport %>
     <%#= "et un #{@materiels["Transport"].downcase}"%>
     <%= link_to 'Suivant', moves_path, class: 'btn btn-suivant w-100 mx-1' %>
 
