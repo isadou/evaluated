@@ -10,25 +10,38 @@
 <div class="my-layout-container">
   <div class="front-content text-center">
       <% @moves.each do |move| %>
-      <div class="card-form mb-3">
-            <tr>
-              <td> Démenagement de <%= move.depart %></td>
-              <td> à <%= move.arrivee %></td>
-              <br>
-              <td>Transport : <%= move.transport%></td>
-              <br>
-              <td>Volume total : <%= @volumes[move] %> m3</td>
-              <br>
-              <td><%= link_to 'Modifier', edit_move_path(move) %></td>
-              <td><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <br>
-              <td><%= link_to 'Recap m3', recap_move_path(move) %></td>
-              <td><%= link_to 'Liste des pièces', rooms_list_move_path(move) %></td>
-              <br>
-            </tr>
-      </div>
-          <% end %>
-          <br>
-          <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-gradient" %>
+        <div class="card-form-moves mb-3">
+          <div>
+            <p class="move-depart"><%= move.depart %></p>
+          </div>
+
+          <div>
+            <p class="move-arrivee"><%= move.arrivee %></p>
+          </div>
+
+          <div class="card-details">
+            <div class="move-details">
+                <p class="move-depart">Transport <p class="move-arrivee"> <%= move.transport%></p></p>
+            </div>
+
+            <div class="vl"> </div>
+
+            <div class="move-details">
+                <p class="move-depart">Volume total <br><p class="move-arrivee"> <%= @volumes[move] %> m3</p></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="move-links">
+          <p class="move-links-front"><%= link_to 'Voir', move_path(move) %></p>
+          <p class="move-links-front"><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p class="move-links-front"><%= link_to 'Détail M3', recap_move_path(move) %></p>
+          <p class="move-links-front"><%= link_to 'Pièces', rooms_list_move_path(move) %></p>
+        </div>
+
+
+      <% end %>
+
+  <%= link_to "Nouveau déménagement !", new_move_path, class: "btn btn-moves" %>
   </div>
 </div>

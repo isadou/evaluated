@@ -64,7 +64,6 @@ body {
     bottom: 0;
 }
 
-
 .front-content {
   z-index: 3;
   position: absolute;
@@ -116,7 +115,7 @@ body {
 .text-demenagements-top {
   z-index: 500;
   position: relative;
-  margin-top: 3vh;
+  margin-top: 2vh;
   margin-bottom: 5vh;
   text-align: center;
 }
@@ -150,12 +149,47 @@ body {
   font-size: 3vh;
 }
 
+// VIEW MOVES FRONT
+.move-depart {
+  color: #63320F;
+  font-weight: bold;
+}
+
+.move-arrivee{
+  color: #9B6644;
+}
+
+.move-details {
+  width: 30vw;;
+}
+
+.move-links {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.move-links-front {
+  font-family: "Baloo Chettan 2", cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 110%;
+  padding: 0 2%;
+  a {
+    color: white;
+  }
+}
+
+.vl {
+  border-left: 1px solid #63320F;
+  height: 10vh;
+}
+
 
 // PAGE FIND MOVER
 .front {
   z-index: 3;
   text-align: center;
-
 }
 
 .find-mover h1, .find-mover h2, .find-mover h3,.find-mover h4 {
@@ -163,7 +197,6 @@ body {
   font-weight: 400;
   font-family: "Baloo Chettan 2", cursive;
   font-style: normal;
-
 }
 
 .find-mover {
