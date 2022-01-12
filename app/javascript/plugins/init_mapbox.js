@@ -8,7 +8,7 @@ const initMapbox = () => {
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 });
   };
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -86,7 +86,7 @@ for (const step of steps) {
 }
 instructions.innerHTML = `<p><strong>Temps de trajet: ${time_convert(Math.floor(
   data.duration / 60
-))} min 🚚 </strong></p><p class="faux lien">Voir l'itinéraire</p> <p> Distance : ${Math.floor(
+))} min 🚚 </strong></p><p class="faux-lien">Voir l'itinéraire</p> <p> Distance : ${Math.floor(
   data.distance / 1000)} km</p><ul class="hidden" id="instructions-list">${tripInstructions}</ol>`;
     }
 
