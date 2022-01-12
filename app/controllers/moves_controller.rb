@@ -19,11 +19,13 @@ class MovesController < ApplicationController
     @markers = [
       {
         lat: @move.depart_latitude,
-        lng: @move.depart_longitude
+        lng: @move.depart_longitude,
+        info_window: render_to_string(partial: "info_window", locals: { position: "depart" })
       },
       {
         lat: @move.arrivee_latitude,
-        lng: @move.arrivee_longitude
+        lng: @move.arrivee_longitude,
+        info_window: render_to_string(partial: "info_window", locals: { position: "arrivée" })
       }
     ]
   end

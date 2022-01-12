@@ -1,0 +1,17 @@
+.mapboxgl-popup {
+  max-width: 200px;
+
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 4px 4px o !important;
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+    color: #63320F;
+    text-transform: capitalize;
+  }
+}
