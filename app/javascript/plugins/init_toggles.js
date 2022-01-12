@@ -3,7 +3,10 @@ const initToggles = () => {
   instructions.addEventListener('click', (e) => {
     const instructionsList = document.querySelector('#instructions-list');
     instructionsList.classList.toggle("hidden");
-    window.location.hash = '#instructions-list';
+    $('html,body').animate({
+      scrollTop: $("#instructions-list").offset().top
+    },
+      'slow');
   });
 }
 

@@ -201,6 +201,9 @@ body {
 .container-show {
   width: 90%;
   margin: 0 auto;
+  ul {
+    list-style: none;
+  }
 }
 
 .show-title {
