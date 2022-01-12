@@ -15,7 +15,7 @@
 
       <p>DETAIL DU VOLUME PAR PIECE</p>
       <%@recap.each do |key, value|%>
-        <div class="btn btn-primary card-volume w-100 x-1">
+        <div class="btn btn-primary card-volume w-100 x-1 d-flex">
           <span class="small"><%= "#{key.upcase} -> #{value} m3"%></span>
         </div>
       <% end %>

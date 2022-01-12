@@ -1,0 +1,5 @@
+meta_product_name: "Evaluat3d"
+meta_title: "Evaluat3d - Ca déménage !"
+meta_description: "Evaluat3d  vous accompagne dans le calcul de votre volume en m3 et vous aide à préparer votre déménagement"
+meta_image: "facebook_evaluat3d.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

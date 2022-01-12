@@ -294,10 +294,11 @@ class MovesController < ApplicationController
   end
 
   def get_distance
-    @url = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/#{@move.depart_longitude},#{@move.depart_latitude};#{@move.arrivee_longitude},#{@move.arrivee_latitude}?steps=true&geometries=geojson&language=fr&access_token=#{ENV['MAPBOX_API_KEY']}"
-    @geoloc_serialized = URI.open(@url).read
-    @geoloc = JSON.parse(@geoloc_serialized)
-    @distance = (@geoloc['routes'][0]['distance'] / 1000).floor
+    url = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/#{@move.depart_longitude},#{@move.depart_latitude};#{@move.arrivee_longitude},#{@move.arrivee_latitude}?steps=true&geometries=geojson&language=fr&access_token=#{ENV['MAPBOX_API_KEY']}"
+    geoloc_serialized = URI.open(url).read
+    geoloc = JSON.parse(geoloc_serialized)
+    @distance = (geoloc['routes'][0]['distance'] / 1000).floor
+    @move.distance = @distance
   end
 
 def get_price_transport
@@ -329,18 +330,18 @@ def get_price_transport
   end
 
   def prix_pro
+    set_move
     unless @rooms.nil?
     sum = 0
-    sum += (get_distance * 1.70) + (effectif_total * 250)
+    sum += (@move.distance * 1.50) + (effectif_total * 180)
       if volume_total < 20
         sum += 50
       else
         sum += 150
       end
     sum += (total_cartons(@rooms) * 2)
-    sum = sum * 1.20
+    sum = sum * 1.15
     end
     sum.ceil
   end
-
 end
