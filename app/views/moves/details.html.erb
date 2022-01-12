@@ -20,10 +20,27 @@
 
   <br>
 
+    
+
   <h3>NOMBRE DE CARTONS TOTAL</h3>
-    <div class= "container-details">
+    
+ <div class= "container-details d-flex justify-content-between">
+    <div class="btn btn-outline-warning btn-rounded-md">
+
       <p class="style-carton"><%= @cartons %></p>
       <%= image_tag("icon/Carton.png", class: "carton-img")%>
+    </div>
+    <div class="square">
+      <p class="style-effectif"><%= @effectif_total %></p>
+      <%= image_tag("icon/demenageur.png", class: "effectif-img")%>
+    </div>
+
+
+  </div>
+
+  <p>NOMBRE DE CARTONS TOTAL</p>
+    <div class= "container-details">
+
     </div>
 
   <h3>NOMBRE DE VOLONTAIRES</h3>
@@ -44,7 +61,17 @@
       <%= image_tag("icon/Biere.png", class: "biere-img")%>
     </div>
 
+
+    <p>VEHICULE NECESSAIRE</p>
+    <div class= "container-details">
+      <p class="style-biere"><%= @move.transport %></p>
+      <%= image_tag("icon/Camion.png", class: "biere-img")%>
+    </div>
+
+
+
   <h3> MATERIELS A PREVOIR </h3>
+
     <%@materiels.each do |key, value|%>
       <%# <%unless key == "Transport" %>
       <%#= "#{pluralize(value, key.downcase)}" if key == "Sangle"%>
