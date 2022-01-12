@@ -20,8 +20,10 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false}).setHTML(marker.info_window);
+      new mapboxgl.Marker({ color: "#63320F"})
         .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
         .addTo(map);
     });
 
@@ -30,7 +32,7 @@ const initMapbox = () => {
     const start = [markers[0].lng, markers[0].lat];
     const end = [markers[1].lng, markers[1].lat];
 
-    async function getRoute(end) {
+    async function getAndDisplayRoute(start, end) {
       // an arbitrary start will always be the same
       // only the end or destination will change
       const query = await fetch(
@@ -81,68 +83,16 @@ let tripInstructions = '';
 for (const step of steps) {
   tripInstructions += `<li>${step.maneuver.instruction}</li>`;
 }
-instructions.innerHTML = `<p><strong>Trip duration: ${time_convert(Math.floor(
+instructions.innerHTML = `<p><strong>Temps de trajet: ${time_convert(Math.floor(
   data.duration / 60
-))} min 🚴 </strong>${Math.floor(
+))} min 🚚 </strong></p> <p> Distance : ${Math.floor(
   data.distance / 1000)} km</p><ol>${tripInstructions}</ol>`;
     }
 
     map.on('load', () => {
       // make an initial directions request that
       // starts and ends at the same location
-      getRoute(start);
-      getRoute(end);
-
-      // Add starting point to the map
-      map.addLayer({
-        id: 'point',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: [
-              {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                  type: 'Point',
-                  coordinates: start
-                }
-              }
-            ]
-          }
-        },
-        paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
-        }
-      });
-
-      map.addLayer({
-        id: 'end',
-        type: 'circle',
-        source: {
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: [
-              {
-                type: 'Feature',
-                properties: {},
-                geometry: {
-                  type: 'Point',
-                  coordinates: end
-                }
-              }
-            ]
-          }
-        },
-        paint: {
-          'circle-radius': 10,
-          'circle-color': '#f30'
-        }
-      });
+      getAndDisplayRoute(start, end);
     });
   }
 };
