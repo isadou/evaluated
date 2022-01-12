@@ -39,14 +39,6 @@
   }
 }
 
-// .card-room {
-//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-//   background-color: white;
-//   border-color: transparent;
-//   color: #9B6644;
-//   margin-top: 2em;
-// }
-
 .card-room {
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -86,6 +78,21 @@
   width: 80%;
 }
 
+// CARD MOVES VIEW
+.card-form-moves {
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  padding: 30px 30px 15px 30px;
+  margin: 0px auto;
+  min-width: 350px;
+  width: 80%;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-around;
+}
 
 //CONTAINER DE DETAILS CARTONS ET EFFECTIF
 .container-details {
