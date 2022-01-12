@@ -23,18 +23,21 @@ demenagement = Move.new(depart: "5 Rue Charles Gounod, Fos-sur-Mer", arrivee: "P
 results = Geocoder.search(demenagement.arrivee)
 demenagement.arrivee_latitude = results.first.coordinates[0]
 demenagement.arrivee_longitude = results.first.coordinates[1]
+demenagement.distance = 760
+demenagement.save!
+p "#{demenagement.user.first_name}'s move created"
+
+demenagement = Move.new(depart: "9 rue crudere, 13006 Marseille", arrivee: "14 Rue de Rome, Marseille", house_type: "maison", acces: 'false', transport: "", user_id: user.id)
+results = Geocoder.search(demenagement.arrivee)
+demenagement.arrivee_latitude = results.first.coordinates[0]
+demenagement.arrivee_longitude = results.first.coordinates[1]
+demenagement.distance = 1
 demenagement.save!
 p "#{demenagement.user.first_name}'s move created"
 
 user = User.create!(email: "georgia@evaluated.com", first_name: "Georgia", last_name: "Drai",telephone: "0712345678", password: "123456")
 p "#{user.email} created"
 
-demenagement = Move.new(depart: "9 rue crudere, 13006 Marseille", arrivee: "14 Rue de Rome, Marseille", house_type: "maison", acces: 'false', transport: "", user_id: user.id)
-results = Geocoder.search(demenagement.arrivee)
-demenagement.arrivee_latitude = results.first.coordinates[0]
-demenagement.arrivee_longitude = results.first.coordinates[1]
-demenagement.save!
-p "#{demenagement.user.first_name}'s move created"
 
 csv_options = { col_sep: ';', quote_char: '"', headers: :first_row }
 filepath    = Rails.root.join("db/volumetrie.csv")
