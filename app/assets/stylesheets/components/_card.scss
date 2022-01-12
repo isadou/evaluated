@@ -1,9 +1,21 @@
-.container-stuffs, .container-rooms, .container-materiels {
+.container-materiels {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
   margin: 2em;
+  color: #9B6644;
+  border-bottom: 2px solid #9B6644;
+  span {
+    font-family: "Baloo Chettan 2";
+    font-size: 30px;
+    font-style: normal;
+    line-height: 43px;
+    letter-spacing: 0em;
+    font-weight: 700;
+    text-transform: uppercase;
+
+
+  }
 }
 
 .items-rooms, .items-stuffs {
