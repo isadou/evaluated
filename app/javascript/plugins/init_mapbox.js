@@ -76,6 +76,7 @@ const initMapbox = () => {
       }
       // add turn instructions here at the end
       const instructions = document.getElementById('instructions');
+
       const distance = Math.floor(data.distance / 1000)
 const steps = data.legs[0].steps;
 
@@ -85,8 +86,8 @@ for (const step of steps) {
 }
 instructions.innerHTML = `<p><strong>Temps de trajet: ${time_convert(Math.floor(
   data.duration / 60
-))} min 🚚 </strong></p> <p> Distance : ${Math.floor(
-  data.distance / 1000)} km</p><ol>${tripInstructions}</ol>`;
+))} min 🚚 </strong></p><p class="faux lien">Voir l'itinéraire</p> <p> Distance : ${Math.floor(
+  data.distance / 1000)} km</p><ol class="hidden" id="instructions-list">${tripInstructions}</ol>`;
     }
 
     map.on('load', () => {
