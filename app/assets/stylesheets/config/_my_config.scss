@@ -9,7 +9,7 @@
 // Les couleurs de l'application :
 $background: #F0F0F0;
 $headline: #FFFFFE;
-$paragraph: #A7A9BE;
+$paragraph: #9B6644;
 $button: #FF8906;
 $button_text: #FFFFFE;
 $stroke: black;
@@ -43,6 +43,7 @@ p {
   font-family: $body-font;
   font-weight: 400;
   margin: 0.2em;
+  color: $paragraph;
 }
 h1 {
   font-size: 10vmin;
