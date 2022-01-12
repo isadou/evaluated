@@ -249,13 +249,35 @@ body {
   width: 90%;
   margin: 0 auto;
   ul {
+    margin-top: 2vh;
     list-style: none;
+    li {
+      color: #63320F;
+      margin: 10px 0;
+      text-justify: auto !important;
+    }
+  }
+}
+
+#instructions {
+  margin-top: 2vh;
+  p {
+   color: #63320F;
+   font-weight: bolder;
+   margin-bottom: 0vh;
+  }
+
+  .faux-lien {
+    color: #9B6644;
+    font-weight: normal;
   }
 }
 
 .show-title {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .details-show {
