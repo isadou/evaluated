@@ -1,24 +1,4 @@
-.container-materiels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 2em;
-  color: #9B6644;
-  border-bottom: 2px solid #9B6644;
-  span {
-    font-family: "Baloo Chettan 2";
-    font-size: 20px;
-    font-style: normal;
-    line-height: 43px;
-    letter-spacing: 0em;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-}
 
-.items-materiels {
-  text-align: left;
-}
 
 .items-rooms, .items-stuffs {
   abbr{display:none;}
@@ -34,7 +14,7 @@
 .horizontal-scroll {
   display: flex;
   gap: 5px;
-  height: fit-content;
+  height: 18vh;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -81,6 +61,41 @@
 .done {
   background-color: #F25F4C;
   color: white;
+}
+
+// PAGE DETAILS
+
+.card-piece {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 19px;
+  width: 17vh;
+  height: 16vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-name-piece {
+  font-family: "Baloo Chettan 2", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  color: #63320F;
+  margin: 0;
+}
+
+.card-name-cartons {
+  width: 20vh;
+  font-family: "Baloo Chettan 2", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 29px;
+  text-align: center;
+  color: #FF8906;
 }
 
 
