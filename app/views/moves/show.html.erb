@@ -11,7 +11,7 @@
     <p><%= @volume_total %> m3</p>
     <%= link_to 'Voir plus', recap_move_path(@move), class: '' %>
     <p>Transport : <%= @move.transport %></p>
-    <p> <%= @cartons %> cartons</p>
+    <p><%= "#{pluralize(@cartons, 'carton')} "%> <%= @cartons %></p>
     <p> Effectif : <%= @effectif_total %> </p>
     <%= link_to 'Voir plus',  details_move_path(@move), class: '' %>
   </div>
