@@ -33,7 +33,7 @@
         </div>
 
         <div class="move-links">
-          <p class="move-links-front"><%= link_to 'Voir', move_path(move) %></p>
+          <p class="move-links-front"><%= link_to 'Trajet', move_path(move) %></p>
           <p class="move-links-front"><%= link_to 'Supprimer', move, method: :delete, data: { confirm: 'Are you sure?' } %></p>
           <p class="move-links-front"><%= link_to 'Détail M3', recap_move_path(move) %></p>
           <p class="move-links-front"><%= link_to 'Pièces', rooms_list_move_path(move) %></p>
