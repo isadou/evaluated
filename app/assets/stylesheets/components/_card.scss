@@ -1,24 +1,4 @@
-.container-materiels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 2em;
-  color: #9B6644;
-  border-bottom: 2px solid #9B6644;
-  span {
-    font-family: "Baloo Chettan 2";
-    font-size: 20px;
-    font-style: normal;
-    line-height: 43px;
-    letter-spacing: 0em;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-}
 
-.items-materiels {
-  text-align: left;
-}
 
 .items-rooms, .items-stuffs {
   abbr{display:none;}
