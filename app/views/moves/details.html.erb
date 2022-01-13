@@ -12,10 +12,9 @@
       <div class="horizontal-scroll">
 
         <%@hash_cartons_by_room.each do |key, value|%>
-          <div class="btn btn-secondary done horizontal-scroll__item">
-            <%= key.name %>
-            <br>
-            <%= "#{pluralize(value, 'carton')} "%>
+          <div class="btn card-piece horizontal-scroll__item">
+            <p class="card-name-piece"><%= key.name.downcase %></p>
+            <p class="card-name-cartons"><%= "#{pluralize(value, 'carton')} "%></p>
           </div>
         <% end %>
       </div>
