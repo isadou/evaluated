@@ -7,15 +7,17 @@
   border-bottom: 2px solid #9B6644;
   span {
     font-family: "Baloo Chettan 2";
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     line-height: 43px;
     letter-spacing: 0em;
     font-weight: 700;
     text-transform: uppercase;
-
-
   }
+}
+
+.items-materiels {
+  text-align: left;
 }
 
 .items-rooms, .items-stuffs {
@@ -36,6 +38,8 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+  margin-left: 5vw;
+  margin-right: 5vw;
 
   &::-webkit-scrollbar {
     display: none;
