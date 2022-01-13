@@ -133,19 +133,19 @@ class MovesController < ApplicationController
     @rooms.each do |room|
       @recap[room.name] = strip_trailing_zero(volume_stuffs(set_stuffs(room)))
     end
-    @volume_total = strip_trailing_zero(volume_total)
+    @volume_total = volume_total
     get_tranport
-    @prix_perso = strip_trailing_zero(prix_perso)
-    @prix_pro = strip_trailing_zero(prix_pro)
+    @prix_perso = prix_perso
+    @prix_pro = prix_pro
   end
 
   def details
     @hash_cartons_by_room = {}
     rooms_list
     @cartons = total_cartons(@rooms)
-    @effectif_total = strip_trailing_zero(effectif_total)
-    @pizza_total = strip_trailing_zero(pizza_total)
-    @biere_total = strip_trailing_zero(biere_total)
+    @effectif_total = effectif_total
+    @pizza_total = pizza_total
+    @biere_total = biere_total
     set_materiels(@cartons)
     @rooms.each do |room|
       @hash_cartons_by_room[room] = carton_room(room)
