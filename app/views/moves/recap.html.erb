@@ -3,7 +3,7 @@
 </div>
 
 <div class="text-pages-top">
-    <h2 class="title-white"><small>VOLUME TOTAL</small></h2>
+    <h4 class="title-white">VOLUME TOTAL</h4>
     <% if @volume_total == "" %>
     <h1 class="title-white text-volume-size">O M3</h1>
     <% else %>
@@ -16,8 +16,7 @@
 
   <div class="front-content">
 
-      <p>DETAIL DU VOLUME PAR PIECE</p>
-
+      <p style="margin-top: 5vh; font-size: 6vw;">DÉTAIL DU VOLUME PAR PIÈCE</p>
 
       <%@recap.each do |key, value|%>
       <div class="container-materiels">
@@ -27,17 +26,17 @@
       <% end  %>
 
 
-    <div class="d-flex justify-content-around">
-    <%= link_to details_move_path, class: 'btn btn-secondary done card-room w-50 x-1' do %>
+    <div class="move-prices">
+    <%= link_to details_move_path, class: 'btn btn-secondary done', style: "width: 80vw; margin: 25px;" do %>
       <span class="small">à partir de</span><br>
-      <span class="h4"><%="#{@prix_perso} € " %></span><br>
-      <span class="strong">SEUL</span>
+      <span class="h4" style="margin-top: 5vh; font-size: 10vw;"><%="#{@prix_perso} € " %></span><br>
+      <span class="strong" style="font-size: 5vw;">SEUL</span>
     <% end %>
 
-    <%= link_to find_mover_move_path, class: 'btn btn-secondary pro card-room w-50 mx-1' do %>
+    <%= link_to find_mover_move_path, class: 'btn btn-secondary pro', style: "width: 80vw; margin: 25px;" do %>
       <span class="small">prix indicatif</span><br>
-      <span class="h4"><%="#{@prix_pro} € " %></span><br>
-      <span class="strong">PRO</span>
+      <span class="h4" style="margin-top: 5vh; font-size: 10vw;"><%="#{@prix_pro} € " %></span><br>
+      <span class="strong" style="font-size: 5vw;">PRO</span>
     <% end %>
     </div>
   </div>
