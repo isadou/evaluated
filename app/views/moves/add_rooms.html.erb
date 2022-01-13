@@ -1,55 +1,44 @@
 <div class="container-image-centered">
   <%= image_tag("Background_top.svg", :class => "background-top")%>
 </div>
-
 <div class="text-pages-top">
-    <h2 class="title-white">SÉLECTIONNER VOS PIÈCES</h2>
+  <h2 class="title-white">SÉLECTIONNER VOS PIÈCES</h2>
 </div>
-
 <div class="my-layout-container">
   <div class="front-content cards">
     <div class="cards">
-      <%# Méthode affichage Room.type %>
       <%= simple_form_for :roomscreation, method: :post, url: create_rooms_move_path do |f| %>
-        <%#= affichage de chaque room type name en label %>
-      <% RoomType::ROOM_TYPES.each do |type| %>
-          <%# <div class=" container-rooms">
-            <%= f.label type, class: 'items-rooms'%>
-            <%# <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms'  %>
-          <%# </div> %>
-      <div class="card">
-        <div class="card-header">
-          <%= image_tag("#{type.capitalize.gsub(" ","_")}.svg", :class => "profile-img") if File.exist? Rails.root.join('app', 'assets', 'images', "#{type.capitalize.gsub(" ","_")}.svg") %>
-        </div>
-      <div class="card-elements">
-        <div class="card-body">
-          <p class="room-name"><%= f.label type, class: 'items-rooms'%></p>
-        </div>
-
-        <div class="card-calcul">
-          <div class="card-button-moins">
-            <button type="submit" style="border: 0; background: transparent" class="moins-rooms">
-              <%= image_tag("-_button.svg", :class => "calcul-icons")%>
-            </button>
+        <% RoomType::ROOM_TYPES.each do |type| %>
+          <div class="card">
+            <div class="card-header">
+              <%= image_tag("#{type.capitalize.gsub(" ","_")}.svg", :class => "profile-img") if File.exist? Rails.root.join('app', 'assets', 'images', "#{type.capitalize.gsub(" ","_")}.svg") %>
+            </div>
+            <div class="card-elements">
+              <div class="card-body">
+                <p class="room-name"><%= f.label type, class: 'items-rooms'%></p>
+              </div>
+              <div class="card-calcul">
+                <div class="card-button-moins">
+                  <button type="submit" style="border: 0; background: transparent" class="moins-rooms">
+                    <%= image_tag("-_button.svg", :class => "calcul-icons")%>
+                  </button>
+                </div>
+                <div class="card-number">
+                  <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms value-room'  %>
+                </div>
+                <div class="card-button-plus">
+                  <button type="submit" style="border: 0; background: transparent" class="plus">
+                    <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="card-number">
-            <%= f.input type.to_sym, input_html: { value: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length, type: 'number', min: @rooms.where(room_type_id: RoomType.find_by(name: type).id).length}, label: false, class: 'items-rooms value-room'  %>
-          </div>
-
-          <div class="card-button-plus">
-            <button type="submit" style="border: 0; background: transparent" class="plus">
-              <%= image_tag("button_plus.svg", :class => "calcul-icons")%>
-            </button>
-        </div>
-      </div>
-    </div>
-  </div>
         <% end %>
-    </div>
-        <div class="form-actions" style="height: 20vh;display: flex;justify-content: center;align-content: center;">
-            <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
+        <div class="form-actions" style="height: 15vh;display: flex;justify-content: center;align-content: center;width: 100vw;">
+          <%= f.button :submit, 'SUIVANT', class: 'btn btn-suivant w-100 mx-1'%>
         </div>
       <% end %>
     </div>
+  </div>
 </div>
